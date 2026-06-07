@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made In The Shade | SunShade Systems</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-orange': '#CC5500',
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#F9F9F9',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- Three.js for 3D Mesh Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F9F9;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.03em;
+        }
+
+        /* 3D Canvas Background */
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            background-color: #1A1A1A; /* Fallback */
+        }
+
+        .relative-z {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Custom selection color */
+        ::selection {
+            background-color: #CC5500;
+            color: #F9F9F9;
+        }
+
+        /* Float animation for structural elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-brand-light">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-dark/90 border-b border-brand-orange/20" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <!-- Brand Icon -->
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange flex items-center justify-center text-brand-light shadow-lg shadow-brand-orange/30">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <span class="font-bold text-xl text-brand-light tracking-tight">SunShade Systems</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">The Problem</a>
+                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">The Solution</a>
+                    <a href="#ecosystem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">Ecosystem</a>
+                    <a href="https://linktr.ee/tymzpollack" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5">
+                        Join Us
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-brand-light hover:text-brand-orange focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- 3D Network Canvas -->
+        <div id="canvas-container"></div>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/80 to-brand-dark z-0"></div>
+
+        <div class="relative-z max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Pill badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/10 border border-brand-light/20 backdrop-blur-sm text-brand-light mb-8 text-sm font-semibold tracking-wide uppercase">
+                <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                The Decentralized Future
+            </div>
+
+            <!-- Massive Headline -->
+            <h1 class="text-6xl sm:text-7xl md:text-8xl font-black text-brand-orange leading-[1.1] tracking-tighter mb-8 drop-shadow-2xl">
+                What the F*** is <br class="hidden md:block" />
+                <span class="text-brand-light">Made in the Shade?</span>
+            </h1>
+            
+            <!-- Sub-headline -->
+            <p class="mt-6 text-xl sm:text-2xl text-brand-light/90 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-md">
+                It's the end of the datacenter monopoly. It's the beginning of community-owned, privacy-first internet.
+            </p>
+            
+            <!-- CTA -->
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#problem" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-full text-brand-light bg-brand-orange hover:bg-orange-600 transition-all shadow-[0_0_40px_-10px_rgba(204,85,0,0.8)] hover:shadow-[0_0_60px_-15px_rgba(204,85,0,1)] transform hover:-translate-y-1">
+                    Explore the Canopy
+                    <i class="fa-solid fa-arrow-down ml-3"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 text-brand-light/50 animate-bounce hidden md:block">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <section id="problem" class="py-24 md:py-32 bg-brand-dark text-brand-light relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-orange/20 text-brand-orange mb-6 text-sm font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-triangle-exclamation"></i> The Problem
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-8">
+                        Datacenters are eating the world.<br/>
+                        <span class="text-brand-orange">Algorithms are eating our attention.</span>
+                    </h2>
+                    <p class="text-xl text-brand-light/80 leading-relaxed border-l-4 border-brand-orange pl-6">
+                        Centralized platforms mine your data to offset their massive server costs. We are tired of exploitative fees, unfair IP tracking, and networks that rely on outrage to generate revenue. The system isn't broken; exploitation is a feature, not a bug.
+                    </p>
+                </div>
+                
+                <!-- Abstract visual representation of centralized problem -->
+                <div class="relative w-full aspect-square md:aspect-video lg:aspect-square bg-black rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-brand-light/10 flex flex-col justify-center items-center p-8">
+                    <!-- Datacenter animation mock -->
+                    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#CC5500 1px, transparent 1px); background-size: 20px 20px;"></div>
+                    <i class="fa-solid fa-server text-8xl text-brand-light/20 mb-8 animate-pulse"></i>
+                    <div class="w-full max-w-sm space-y-4 relative z-10">
+                        <div class="h-4 bg-red-500/80 rounded flex items-center px-2 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+                            <span class="text-[10px] font-mono text-white uppercase">Data Harvesting Active</span>
+                        </div>
+                        <div class="h-4 bg-brand-orange/80 rounded w-5/6 flex items-center px-2">
+                            <span class="text-[10px] font-mono text-white uppercase">High Server Fees</span>
+                        </div>
+                        <div class="h-4 bg-brand-light/50 rounded w-4/6 flex items-center px-2">
+                            <span class="text-[10px] font-mono text-brand-dark uppercase">Algorithmic Toxicity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="py-24 md:py-32 bg-brand-light text-brand-dark relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center flex-col-reverse lg:flex-row-reverse">
+                
+                <!-- Solution Content -->
+                <div class="order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-dark/10 text-brand-dark mb-6 text-sm font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-lightbulb text-brand-orange"></i> The Solution
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-8">
+                        Enter the <span class="text-brand-orange underline decoration-8 underline-offset-4">SunShade Hub.</span>
+                    </h2>
+                    <p class="text-xl text-brand-dark/80 leading-relaxed mb-8">
+                        We bypass the server farm. We integrate hybrid edge-computing directly into modular furniture—<strong class="text-brand-dark">LearnStations</strong>—placed inside schools and community centers. 
+                    </p>
+                    <div class="bg-white p-6 rounded-2xl shadow-xl shadow-brand-dark/5 border border-brand-dark/5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-plug-circle-check text-brand-orange text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">The Perfect Exchange</h4>
+                                <p class="text-brand-dark/70">They provide the power and ambient cooling; we provide an unhackable, decentralized mesh network ensuring complete user safety.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract visual representation of decentralized solution -->
+                <div class="order-2 lg:order-1 relative w-full aspect-square md:aspect-video lg:aspect-square bg-white rounded-3xl overflow-hidden shadow-2xl border border-brand-dark/10 p-8 flex items-center justify-center">
+                    <!-- Connecting Nodes Animation Mock -->
+                    <div class="absolute inset-0 bg-brand-light/50"></div>
+                    <div class="relative z-10 w-full h-full flex items-center justify-center">
+                        <div class="relative w-64 h-64 animate-float">
+                            <!-- Center Node (Hub) -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-brand-orange rounded-2xl shadow-xl flex items-center justify-center text-brand-light z-20">
+                                <i class="fa-solid fa-microchip text-3xl"></i>
+                            </div>
+                            <!-- Orbiting Nodes (Pocket Stones/Devices) -->
+                            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-dark rounded-full shadow-lg flex items-center justify-center text-brand-light animate-pulse">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-dark rounded-full shadow-lg flex items-center justify-center text-brand-light animate-pulse delay-75">
+                                <i class="fa-solid fa-laptop"></i>
+                            </div>
+                            <div class="absolute top-1/2 left-0 transform -translate-y-1/2 w-12 h-12 bg-brand-dark rounded-full shadow-lg flex items-center justify-center text-brand-light animate-pulse delay-150">
+                                <i class="fa-solid fa-vr-cardboard"></i>
+                            </div>
+                            <div class="absolute top-1/2 right-0 transform -translate-y-1/2 w-12 h-12 bg-brand-dark rounded-full shadow-lg flex items-center justify-center text-brand-light animate-pulse delay-300">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <!-- Lines (SVG) -->
+                            <svg class="absolute inset-0 w-full h-full -z-10" viewBox="0 0 256 256">
+                                <line x1="128" y1="128" x2="128" y2="24" stroke="#CC5500" stroke-width="2" stroke-dasharray="4" class="opacity-50" />
+                                <line x1="128" y1="128" x2="128" y2="232" stroke="#CC5500" stroke-width="2" stroke-dasharray="4" class="opacity-50" />
+                                <line x1="128" y1="128" x2="24" y2="128" stroke="#CC5500" stroke-width="2" stroke-dasharray="4" class="opacity-50" />
+                                <line x1="128" y1="128" x2="232" y2="128" stroke="#CC5500" stroke-width="2" stroke-dasharray="4" class="opacity-50" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ecosystem" class="py-24 md:py-32 bg-brand-orange text-brand-light relative z-10 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black mb-16 drop-shadow-lg">A Digital Canopy Built for Makers.</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="bg-brand-dark/20 backdrop-blur-lg p-10 rounded-3xl border border-brand-light/10 hover:bg-brand-dark/30 transition-colors transform hover:-translate-y-2 duration-300 shadow-xl">
+                    <div class="w-16 h-16 bg-brand-light text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto shadow-inner">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">SunShade OS</h3>
+                    <p class="text-brand-light/90 leading-relaxed font-medium">
+                        Absolute data sovereignty. A walled-garden operating system processing everything securely on the edge. Your data never traverses the public internet.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-brand-dark/20 backdrop-blur-lg p-10 rounded-3xl border border-brand-light/10 hover:bg-brand-dark/30 transition-colors transform hover:-translate-y-2 duration-300 shadow-xl">
+                    <div class="w-16 h-16 bg-brand-light text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto shadow-inner">
+                        <i class="fa-solid fa-hammer"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">The Maker Network</h3>
+                    <p class="text-brand-light/90 leading-relaxed font-medium">
+                        Connect directly with your muses without predatory commissions. Log, track, and monetize your digital and physical builds fairly.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-brand-dark/20 backdrop-blur-lg p-10 rounded-3xl border border-brand-light/10 hover:bg-brand-dark/30 transition-colors transform hover:-translate-y-2 duration-300 shadow-xl">
+                    <div class="w-16 h-16 bg-brand-light text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto shadow-inner">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Toxicity Tax</h3>
+                    <p class="text-brand-light/90 leading-relaxed font-medium">
+                        We monetize bad behavior to keep constructive interactions entirely free. A severity-based digital swear jar powered by localized AI moderation.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-brand-light pt-20 pb-10 border-t border-brand-light/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded bg-brand-orange flex items-center justify-center text-brand-light shadow-md">
+                            <i class="fa-solid fa-network-wired text-sm"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight">SunShade Systems</span>
+                    </div>
+                    <p class="text-brand-light/60 max-w-sm mb-6 leading-relaxed">
+                        Redefining how humans learn, create, protect their IP, and interact safely online through decentralized infrastructure.
+                    </p>
+                    <a href="https://linktr.ee/tymzpollack" target="_blank" class="inline-flex items-center gap-2 text-brand-orange hover:text-orange-400 font-bold transition-colors">
+                        <i class="fa-solid fa-link"></i> Founder's Linktree
+                    </a>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-4 text-brand-light/60">
+                        <li><a href="#" class="hover:text-brand-orange transition-colors">SunShade Pitch Deck v3</a></li>
+                        <li><a href="#" class="hover:text-brand-orange transition-colors">Residency Application</a></li>
+                        <li><a href="#" class="hover:text-brand-orange transition-colors">Hardware Architecture</a></li>
+                        <li><a href="#" class="hover:text-brand-orange transition-colors">Whitepaper (Coming Soon)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Connect</h4>
+                    <form class="space-y-3" onsubmit="event.preventDefault(); alert('Message feature requires backend integration. Please reach via Linktree!');">
+                        <input type="email" placeholder="Email Address" required class="w-full bg-brand-light/5 border border-brand-light/10 rounded-lg px-4 py-2 text-brand-light focus:outline-none focus:border-brand-orange transition-colors">
+                        <button type="submit" class="w-full bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-2 rounded-lg transition-colors">
+                            Join the Canopy
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-brand-light/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-brand-light/40 text-sm">
+                    &copy; 2026 SunShade Systems. Made in the Shade.wtf.
+                </p>
+                <div class="flex space-x-6 text-brand-light/40">
+                    <a href="#" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Three.js Network Animation initialization
+        window.onload = function() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+
+            // Scene setup
+            const scene = new THREE.Scene();
+            
+            // Add subtle fog to fade out distant nodes
+            scene.fog = new THREE.FogExp2('#1A1A1A', 0.0015);
+
+            // Camera setup
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 400;
+
+            // Renderer setup
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Create particles/nodes
+            const particleCount = 150; // Adjust for density
+            const particles = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const velocities = [];
+
+            const spread = 800; // Spread area
+
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                // x, y, z positions
+                positions[i] = (Math.random() - 0.5) * spread;
+                positions[i + 1] = (Math.random() - 0.5) * spread;
+                positions[i + 2] = (Math.random() - 0.5) * spread;
+
+                // Random velocities for slow movement
+                velocities.push({
+                    x: (Math.random() - 0.5) * 0.5,
+                    y: (Math.random() - 0.5) * 0.5,
+                    z: (Math.random() - 0.5) * 0.5
+                });
+            }
+
+            particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            // Material for nodes (Burnt Orange)
+            const particleMaterial = new THREE.PointsMaterial({
+                color: 0xCC5500, // Brand Orange
+                size: 4,
+                transparent: true,
+                opacity: 0.8,
+                sizeAttenuation: true
+            });
+
+            const particleSystem = new THREE.Points(particles, particleMaterial);
+            scene.add(particleSystem);
+
+            // Lines geometry (to be updated dynamically based on distance)
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0xCC5500,
+                transparent: true,
+                opacity: 0.15
+            });
+
+            // Need an empty geometry to start, will update in loop
+            const linesGeometry = new THREE.BufferGeometry();
+            const linesMesh = new THREE.LineSegments(linesGeometry, lineMaterial);
+            scene.add(linesMesh);
+
+            // Connection distance threshold
+            const maxDistance = 120;
+
+            // Animation Loop
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const positions = particleSystem.geometry.attributes.position.array;
+                
+                // Update particle positions based on velocities
+                for (let i = 0; i < particleCount; i++) {
+                    positions[i * 3] += velocities[i].x;
+                    positions[i * 3 + 1] += velocities[i].y;
+                    positions[i * 3 + 2] += velocities[i].z;
+
+                    // Bounce off boundaries to keep them in view
+                    if (Math.abs(positions[i * 3]) > spread / 2) velocities[i].x *= -1;
+                    if (Math.abs(positions[i * 3 + 1]) > spread / 2) velocities[i].y *= -1;
+                    if (Math.abs(positions[i * 3 + 2]) > spread / 2) velocities[i].z *= -1;
+                }
+                particleSystem.geometry.attributes.position.needsUpdate = true;
+
+                // Slowly rotate the entire system
+                particleSystem.rotation.y += 0.001;
+                linesMesh.rotation.y += 0.001;
+
+                // Update connections (lines) between close nodes
+                const linePositions = [];
+                
+                // O(n^2) check - acceptable for small particle counts (< 200)
+                for (let i = 0; i < particleCount; i++) {
+                    for (let j = i + 1; j < particleCount; j++) {
+                        const dx = positions[i * 3] - positions[j * 3];
+                        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+                        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+                        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                        if (dist < maxDistance) {
+                            linePositions.push(
+                                positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
+                                positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
+                            );
+                        }
+                    }
+                }
+
+                linesMesh.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+
+                renderer.render(scene, camera);
+            }
+
+            // Start animation
+            animate();
+
+            // Handle Window Resize
+            window.addEventListener('resize', onWindowResize, false);
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            // Mouse interaction (subtle camera shift)
+            let mouseX = 0;
+            let mouseY = 0;
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - window.innerWidth / 2);
+                mouseY = (event.clientY - window.innerHeight / 2);
+                
+                // Smooth camera move target
+                camera.position.x += (mouseX * 0.05 - camera.position.x) * 0.02;
+                camera.position.y += (-mouseY * 0.05 - camera.position.y) * 0.02;
+                camera.lookAt(scene.position);
+            });
+        };
+
+        // Scroll Navbar Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'border-brand-orange/40');
+                navbar.classList.remove('border-brand-orange/20');
+            } else {
+                navbar.classList.remove('shadow-md', 'border-brand-orange/40');
+                navbar.classList.add('border-brand-orange/20');
+            }
+        });
+    </script>
+</body>
+</html>
