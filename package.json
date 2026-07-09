@@ -1,0 +1,24 @@
+{
+  "name": "madeintheshade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tympollack/madeintheshade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tympollack/madeintheshade/issues"
+  },
+  "homepage": "https://github.com/tympollack/madeintheshade#readme",
+  "dependencies": {
+    "resend": "^6.17.2"
+  }
+}

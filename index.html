@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get It Made In The Shade | SunShade Systems, LLC</title>
     
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,6 +37,12 @@
 
     <!-- Three.js for 3D Mesh Background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <!-- Toastify JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <style>
         body {
@@ -338,10 +345,15 @@
 
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Connect</h4>
-                    <form class="space-y-3" onsubmit="event.preventDefault(); alert('Message feature requires backend integration. Please reach via Linktree!');">
-                        <input type="email" placeholder="Email Address" required class="w-full bg-brand-light/5 border border-brand-light/10 rounded-lg px-4 py-2 text-brand-light focus:outline-none focus:border-brand-orange transition-colors">
-                        <button type="submit" class="w-full bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-2 rounded-lg transition-colors">
-                            Join the Canopy
+                    <form id="waitlist-form" class="space-y-3">
+                        <!-- Honeypot field to deter bots -->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" id="waitlist-honey" name="b_email" tabindex="-1" value="">
+                        </div>
+                        <input type="email" id="waitlist-email" placeholder="Email Address" required class="w-full bg-brand-light/5 border border-brand-light/10 rounded-lg px-4 py-2 text-brand-light focus:outline-none focus:border-brand-orange transition-colors disabled:opacity-50">
+                        <button type="submit" id="waitlist-submit" class="w-full bg-brand-orange hover:bg-orange-600 disabled:bg-brand-orange/50 text-brand-light font-bold py-2 rounded-lg transition-colors flex justify-center items-center gap-2">
+                            <span id="waitlist-submit-text">Join the Canopy</span>
+                            <i id="waitlist-submit-spinner" class="fa-solid fa-spinner fa-spin hidden"></i>
                         </button>
                     </form>
                 </div>
@@ -515,6 +527,82 @@
             } else {
                 navbar.classList.remove('shadow-md', 'border-brand-orange/40');
                 navbar.classList.add('border-brand-orange/20');
+            }
+        });
+
+        // Waitlist Form Submission Logic
+        document.getElementById('waitlist-form')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('waitlist-email');
+            const submitBtn = document.getElementById('waitlist-submit');
+            const submitText = document.getElementById('waitlist-submit-text');
+            const spinner = document.getElementById('waitlist-submit-spinner');
+            const honey = document.getElementById('waitlist-honey').value;
+            
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            // Loading state
+            emailInput.disabled = true;
+            submitBtn.disabled = true;
+            spinner.classList.remove('hidden');
+
+            try {
+                const response = await fetch('/api/waitlist', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, honey })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to join waitlist');
+                }
+
+                // Success Toast
+                Toastify({
+                    text: "Successfully joined the Canopy!",
+                    duration: 3000,
+                    gravity: "bottom", 
+                    position: "right", 
+                    style: {
+                        background: "#CC5500", // brand-orange
+                        color: "#F9F9F9",
+                        borderRadius: "8px",
+                        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: "600"
+                    }
+                }).showToast();
+
+                // Clear input
+                emailInput.value = '';
+                
+            } catch (error) {
+                // Error Toast
+                Toastify({
+                    text: error.message || "An error occurred. Please try again.",
+                    duration: 4000,
+                    gravity: "bottom", 
+                    position: "right", 
+                    style: {
+                        background: "#ef4444", // tailwind red-500
+                        color: "#F9F9F9",
+                        borderRadius: "8px",
+                        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: "600"
+                    }
+                }).showToast();
+            } finally {
+                // Restore state
+                emailInput.disabled = false;
+                submitBtn.disabled = false;
+                spinner.classList.add('hidden');
             }
         });
     </script>
