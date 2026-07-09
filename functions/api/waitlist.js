@@ -2,10 +2,24 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   
   try {
-    const { email } = await request.json();
+    const { email, honey } = await request.json();
 
-    if (!email) {
+    // Honeypot check: If bots fill out the hidden field, silently return success
+    if (honey) {
+      return Response.json({ message: 'Success' }, { status: 200 });
+    }
+
+    if (!email || typeof email !== 'string') {
       return Response.json({ error: 'Email is required' }, { status: 400 });
+    }
+
+    if (email.length > 254) {
+      return Response.json({ error: 'Email is too long' }, { status: 400 });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return Response.json({ error: 'Invalid email format' }, { status: 400 });
     }
 
     const res = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
