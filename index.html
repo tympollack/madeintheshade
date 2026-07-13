@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get It Made In The Shade | SunShade Systems, LLC</title>
+    <title>SunShade Systems | Have It Made in the Shade</title>
     
     <link rel="icon" href="/assets/favicon.png" type="image/png">
     
@@ -111,9 +111,39 @@
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">The Problem</a>
                     <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">The Solution</a>
-                    <a href="#ecosystem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">Ecosystem</a>
-                    <a href="https://linktr.ee/tymzpollack" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5">
-                        Join Us
+                    <div class="relative group">
+                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2">
+                            Ecosystem
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top pointer-events-none group-hover:pointer-events-auto z-50">
+                            <div class="bg-brand-dark/95 backdrop-blur-md border border-brand-light/10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(204,85,0,0.3)] flex flex-col p-2">
+                                <a href="#ecosystem" class="px-4 py-3 rounded-xl hover:bg-brand-light/5 text-brand-light/90 hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-3">
+                                    <i class="fa-solid fa-globe w-5 text-center"></i> What is it?
+                                </a>
+                                <div class="h-px bg-brand-light/10 my-1 mx-4"></div>
+                                <a href="#lexshade" class="px-4 py-3 rounded-xl hover:bg-brand-light/5 text-brand-light/90 hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-3">
+                                    <i class="fa-solid fa-scale-unbalanced w-5 text-center"></i> LexShade
+                                </a>
+                                <a href="#patchwork" class="px-4 py-3 rounded-xl hover:bg-brand-light/5 text-brand-light/90 hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-3">
+                                    <i class="fa-solid fa-road-circle-check w-5 text-center"></i> PatchWork
+                                </a>
+                                <a href="#speak-for-the-dead" class="px-4 py-3 rounded-xl hover:bg-brand-light/5 text-brand-light/90 hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-3">
+                                    <i class="fa-solid fa-person-falling-burst w-5 text-center"></i> Speak for the Dead
+                                </a>
+                                <a href="#project-valerie" class="px-4 py-3 rounded-xl hover:bg-brand-light/5 text-brand-light/90 hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-3">
+                                    <i class="fa-solid fa-users-rays w-5 text-center"></i> Project Valerie
+                                </a>
+                                <div class="h-px bg-brand-light/10 my-1 mx-4"></div>
+                                <a href="#game-hub" class="px-4 py-3 rounded-xl hover:bg-brand-light/5 text-brand-light/90 hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-3">
+                                    <i class="fa-solid fa-gamepad w-5 text-center"></i> Game Hub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#footer" class="bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5">
+                        Join Us, Won't You?
                     </a>
                 </div>
                 <!-- Mobile menu button -->
@@ -213,7 +243,8 @@
                         <i class="fa-solid fa-lightbulb text-brand-orange"></i> The Solution
                     </div>
                     <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-8">
-                        Enter the <span class="text-brand-orange underline decoration-8 underline-offset-4">SunShade Hub.</span>
+                        Enter the <span class="text-brand-orange underline decoration-8 underline-offset-4">
+						<a href="https://hub.sunshade.icu" target="_blank">SunShade Hub</a>.</span>
                     </h2>
                     <p class="text-xl text-brand-dark/80 leading-relaxed mb-8">
                         We bypass the server farm. We integrate hybrid edge computing directly into modular furniture—<strong class="text-brand-dark">LearnStations</strong>—placed in schools and community centers. 
@@ -315,10 +346,181 @@
         </div>
     </section>
 
-    <footer class="bg-brand-dark text-brand-light pt-20 pb-10 border-t border-brand-light/10 relative z-10">
+    <!-- 1. LexShade Section -->
+    <section id="lexshade" class="min-h-screen flex items-center justify-center bg-brand-dark text-brand-light relative z-10 overflow-hidden py-20">
+        <!-- Floating shapes -->
+        <div class="absolute top-20 left-20 w-32 h-32 bg-brand-orange/20 rounded-full blur-3xl animate-float"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+            <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 bg-brand-light/10 backdrop-blur-md text-brand-orange rounded-[2rem] flex items-center justify-center text-6xl md:text-8xl shadow-[0_0_30px_-5px_rgba(204,85,0,0.4)] border border-brand-light/10">
+                <i class="fa-solid fa-scale-unbalanced"></i>
+            </div>
+            <div>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 drop-shadow-md">LexShade</h2>
+                <p class="text-xl md:text-2xl text-brand-light/80 max-w-3xl font-medium">
+                    Centralized medical records are vulnerable to breaches and lock patients
+				out of their own data. LexShade leverages FHIR standards with zero-knowledge 
+				proofs (ZKP) to ensure secure, decentralized healthcare data ownership. 
+				Patients control their medical history, sharing proof of health metrics 
+				without exposing raw data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PatchWork Section -->
+    <section id="patchwork" class="min-h-screen flex items-center justify-center bg-brand-light text-brand-dark relative z-10 overflow-hidden py-20">
+        <div class="absolute bottom-20 right-20 w-40 h-40 bg-brand-orange/30 rounded-full blur-3xl animate-float" style="animation-delay: 1.5s;"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row-reverse items-center gap-12 text-center md:text-right">
+            <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 bg-brand-dark/5 backdrop-blur-md text-brand-orange rounded-[2rem] flex items-center justify-center text-6xl md:text-8xl shadow-xl border border-brand-dark/10">
+                <i class="fa-solid fa-road-circle-check"></i>
+            </div>
+            <div>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 drop-shadow-sm">PatchWork</h2>
+                <p class="text-xl md:text-2xl text-brand-dark/80 max-w-3xl ml-auto font-medium">
+                    Bureaucratic infrastructure reporting lacks privacy and user incentive. 
+				PatchWork fixes this as a decentralized civic mapping app. Users port 
+				local issues (like potholes) to a secure ledger for gamified rewards, 
+				using hardware-backed cryptographic attestation to build a digital twin 
+				map of our infrastructure as an early warning system for decay.
+			    </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Speak for the Dead Section -->
+    <section id="speak-for-the-dead" class="min-h-screen flex items-center justify-center bg-brand-orange text-brand-light relative z-10 overflow-hidden py-20">
+        <!-- Subtle pattern -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-light to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+            <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 bg-brand-dark/20 backdrop-blur-md text-brand-light rounded-[2rem] flex items-center justify-center text-6xl md:text-8xl shadow-xl border border-brand-light/20">
+                <i class="fa-solid fa-person-falling-burst"></i>
+            </div>
+            <div>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">Speak for the Dead</h2>
+                <p class="text-xl md:text-2xl text-brand-light/90 max-w-3xl font-medium">
+                    Preserving digital legacies. Immutable archives and memory persistence 
+				protocols ensuring your voice echoes beyond time for those who no longer 
+				can speak for themselves. This app is dedicated to the pain and tragedy 
+				of those affected by governmental regulations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Project Valerie Section -->
+    <section id="project-valerie" class="min-h-screen flex items-center justify-center bg-brand-dark text-brand-light relative z-10 overflow-hidden py-20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-light/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row-reverse items-center gap-12 text-center md:text-right">
+            <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 bg-brand-light/10 backdrop-blur-md text-brand-orange rounded-[2rem] flex items-center justify-center text-6xl md:text-8xl shadow-[0_0_40px_-10px_rgba(204,85,0,0.5)] border border-brand-light/10">
+                <i class="fa-solid fa-users-rays"></i>
+            </div>
+            <div>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 drop-shadow-md">Project Valerie</h2>
+                <p class="text-xl md:text-2xl text-brand-light/80 max-w-3xl ml-auto font-medium">
+                    Modern online polling is plagued by bot manipulation and echo chambers, 
+				making consensus impossible. Project Valerie acts as a community polling 
+				app and "truth engine." By utilizing decentralized cryptographic attestation, 
+				it guarantees one-vote-per-human, providing untampered, verifiable consensus 
+				on critical public issues.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SunShade Game Hub Section -->
+    <section id="game-hub" class="min-h-screen flex flex-col items-center justify-center bg-brand-light text-brand-dark relative z-10 py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-7xl font-black mb-6 text-brand-dark drop-shadow-sm">SunShade Game Hub</h2>
+                <p class="text-xl text-brand-dark/70 font-medium max-w-2xl mx-auto">Immersive experiences crafted by the Maker Network. Dive into our evolving library of interactive worlds.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Game 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-dark/10 hover:border-brand-orange/50 transition-all transform hover:-translate-y-2 hover:shadow-2xl duration-300 group cursor-pointer">
+                    <div class="flex items-center mb-6 text-left">
+                        <div class="w-16 h-16 shrink-0 bg-brand-orange/10 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:bg-brand-orange group-hover:text-brand-light transition-colors">
+                            <i class="fa-solid fa-khanda"></i>
+                        </div>
+                        <h3 class="text-2xl font-black m-0">War: Second Wind</h3>
+                    </div>
+                    <p class="text-brand-dark/70 font-medium leading-relaxed">
+						Classic card games often lack modern multiplayer depth 
+						and can drag on. Second Wind solves this by modernizing 
+						War. It introduces custom mechanics, such as the removing 
+						destroyed war pairs and introducing a trump suit, to 
+						revitalize traditional turn-based play.
+                    </p>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-dark/10 hover:border-brand-orange/50 transition-all transform hover:-translate-y-2 hover:shadow-2xl duration-300 group cursor-pointer">
+                    <div class="flex items-center mb-6 text-left">
+                        <div class="w-16 h-16 shrink-0 bg-brand-orange/10 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:bg-brand-orange group-hover:text-brand-light transition-colors">
+                            <i class="fa-solid fa-hockey-puck"></i>
+                        </div>
+                        <h3 class="text-2xl font-black m-0">Puk Huk</h3>
+                    </div>
+                    <p class="text-brand-dark/70 font-medium leading-relaxed">
+						Shuffleboard tables are space-prohibitive and expensive to 
+						maintain, causing a classic game to fade from public awareness. 
+						Puk Huk revitalizes it as a highly accessible digital port. 
+						It brings the physics-based strategy of the original table 
+						game into a modern, competitive digital format for a new 
+						generation.
+                    </p>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-brand-dark/10 hover:border-brand-orange/50 transition-all transform hover:-translate-y-2 hover:shadow-2xl duration-300 group cursor-pointer">
+                    <div class="flex items-center mb-6 text-left">
+                        <div class="w-16 h-16 shrink-0 bg-brand-orange/10 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:bg-brand-orange group-hover:text-brand-light transition-colors">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h3 class="text-2xl font-black m-0">Dart Up!</h3>
+                    </div>
+                    <p class="text-brand-dark/70 font-medium leading-relaxed">
+						Classic 4x strategy games often suffer from stale pacing and 
+						convoluted mechanics. Dart Up! modernizes the space exploration 
+						formula by streamlining the experience into an intense race to 
+						capture Earth. It combines strategic depth with fast-paced 
+						territory control.
+					</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. The Critterverse (Sneak Peek) -->
+    <section id="critterverse" class="min-h-screen flex items-center justify-center bg-brand-dark text-brand-light relative z-10 overflow-hidden py-20">
+        <!-- Glowing accents -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-[600px] h-[600px] bg-brand-orange/5 rounded-full blur-[120px] mix-blend-screen shadow-[0_0_80px_20px_rgba(204,85,0,0.3)]"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-5xl md:text-7xl font-black mb-8 drop-shadow-[0_0_40px_rgba(204,85,0,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-light">A Sneak Peek into the Critterverse</h2>
+            
+            <p class="text-xl md:text-2xl text-brand-light/70 mb-16 font-medium max-w-3xl mx-auto">
+                Something stirs in the dark. A vast, interconnected narrative sandbox where your choices ripple across dimensions. 
+                Prepare to meet the Critters.
+            </p>
+            
+            <!-- Frosted glass placeholder -->
+            <div class="w-full max-w-4xl mx-auto aspect-video bg-brand-light/5 backdrop-blur-xl rounded-3xl border border-brand-light/10 shadow-[0_0_40px_-10px_rgba(204,85,0,0.4)] flex items-center justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand-orange/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                <div class="text-center animate-pulse">
+                    <i class="fa-solid fa-eye text-6xl text-brand-orange/50 mb-4 drop-shadow-[0_0_15px_rgba(204,85,0,0.8)]"></i>
+                    <p class="text-brand-light/50 font-bold uppercase tracking-[0.2em] text-sm">Visual Transmission Pending</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-brand-dark text-brand-light pt-20 pb-10 border-t border-brand-light/10 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div>
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-8 h-8 rounded bg-brand-orange flex items-center justify-center text-brand-light shadow-md">
                             <i class="fa-solid fa-network-wired text-sm"></i>
@@ -333,40 +535,42 @@
                     </a>
                 </div>
                 
-                <div>
-                    <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Resources</h4>
-                    <ul class="space-y-4 text-brand-light/60">
-                        <li><a href="#" class="hover:text-brand-orange transition-colors">SunShade Pitch Deck v3</a></li>
-                        <li><a href="#" class="hover:text-brand-orange transition-colors">Residency Application</a></li>
-                        <li><a href="#" class="hover:text-brand-orange transition-colors">Hardware Architecture</a></li>
-                        <li><a href="#" class="hover:text-brand-orange transition-colors">Whitepaper (Coming Soon)</a></li>
-                    </ul>
+                <div class="flex md:justify-center">
+                    <div>
+                        <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Resources</h4>
+                        <ul class="space-y-4 text-brand-light/60">
+                             <li><a href="#" class="hover:text-brand-orange transition-colors">Hardware Architecture (Soon&trade;)</a></li>
+                            <li><a href="#" class="hover:text-brand-orange transition-colors">Whitepaper (Soon&trade;)</a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Connect</h4>
-                    <form id="waitlist-form" class="space-y-3">
-                        <!-- Honeypot field to deter bots -->
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            <input type="text" id="waitlist-honey" name="fax_number" tabindex="-1" value="" autocomplete="off">
-                        </div>
-                        <input type="email" id="waitlist-email" placeholder="Email Address" required class="w-full bg-brand-light/5 border border-brand-light/10 rounded-lg px-4 py-2 text-brand-light focus:outline-none focus:border-brand-orange transition-colors disabled:opacity-50">
-                        <button type="submit" id="waitlist-submit" class="w-full bg-brand-orange hover:bg-orange-600 disabled:bg-brand-orange/50 text-brand-light font-bold py-2 rounded-lg transition-colors flex justify-center items-center gap-2">
-                            <span id="waitlist-submit-text">Join the Canopy</span>
-                            <i id="waitlist-submit-spinner" class="fa-solid fa-spinner fa-spin hidden"></i>
-                        </button>
-                    </form>
+                <div class="flex md:justify-end">
+                    <div class="w-full max-w-sm">
+                        <h4 class="font-bold text-lg mb-6 text-brand-light/90 uppercase tracking-wider">Connect</h4>
+                        <form id="waitlist-form" class="space-y-3">
+                            <!-- Honeypot field to deter bots -->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" id="waitlist-honey" name="fax_number" tabindex="-1" value="" autocomplete="off">
+                            </div>
+                            <input type="email" id="waitlist-email" placeholder="Email Address" required class="w-full bg-brand-light/5 border border-brand-light/10 rounded-lg px-4 py-2 text-brand-light focus:outline-none focus:border-brand-orange transition-colors disabled:opacity-50">
+                            <button type="submit" id="waitlist-submit" class="w-full bg-brand-orange hover:bg-orange-600 disabled:bg-brand-orange/50 text-brand-light font-bold py-2 rounded-lg transition-colors flex justify-center items-center gap-2">
+                                <span id="waitlist-submit-text">Join the Canopy</span>
+                                <i id="waitlist-submit-spinner" class="fa-solid fa-spinner fa-spin hidden"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
             
             <div class="pt-8 border-t border-brand-light/10 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-brand-light/40 text-sm">
-                    &copy; 2026 SunShade Systems. Made in the Shade.wtf.
+                    &copy; 2026 SunShade Systems, LLC
                 </p>
                 <div class="flex space-x-6 text-brand-light/40">
-                    <a href="#" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
-                    <a href="#" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
-                    <a href="#" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                    <a href="https://x.com/tympollack" target="_blank" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="https://linkedin.com/in/tymzpollack" target="_blank" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                    <a href="https://github.com/tympollack" target="_blank" class="hover:text-brand-light transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
                 </div>
             </div>
         </div>
