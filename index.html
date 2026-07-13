@@ -148,9 +148,32 @@
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-brand-light hover:text-brand-orange focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
+                    <button id="mobile-menu-btn" class="text-brand-light hover:text-brand-orange focus:outline-none p-2">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-2xl transition-transform duration-300"></i>
                     </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-md border-b border-brand-orange/20 w-full absolute top-20 left-0 flex flex-col shadow-2xl">
+            <div class="px-2 pt-2 pb-6 space-y-1 overflow-y-auto max-h-[calc(100vh-5rem)]">
+                <a href="#problem" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">The Problem</a>
+                <a href="#solution" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">The Solution</a>
+                
+                <!-- Ecosystem links -->
+                <div class="px-6 py-2 text-brand-light/50 font-bold uppercase tracking-wider text-sm mt-4">Ecosystem</div>
+                <div class="pl-4 border-l border-brand-light/10 ml-6 space-y-1">
+                    <a href="#ecosystem" class="mobile-link block px-4 py-3 text-brand-light/80 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl font-medium transition-colors">Main Info Panel</a>
+                    <a href="#lexshade" class="mobile-link block px-4 py-3 text-brand-light/80 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl font-medium transition-colors">LexShade</a>
+                    <a href="#patchwork" class="mobile-link block px-4 py-3 text-brand-light/80 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl font-medium transition-colors">PatchWork</a>
+                    <a href="#speak-for-the-dead" class="mobile-link block px-4 py-3 text-brand-light/80 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl font-medium transition-colors">Speak for the Dead</a>
+                    <a href="#project-valerie" class="mobile-link block px-4 py-3 text-brand-light/80 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl font-medium transition-colors">Project Valerie</a>
+                    <a href="#game-hub" class="mobile-link block px-4 py-3 text-brand-light/80 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl font-medium transition-colors">Game Hub</a>
+                </div>
+                
+                <div class="pt-4 mt-2 border-t border-brand-light/10">
+                    <a href="#footer" class="mobile-link block px-6 py-4 text-brand-orange font-bold hover:bg-brand-light/5 rounded-xl text-lg transition-colors text-center mt-2">Join Us, Won't You?</a>
                 </div>
             </div>
         </div>
@@ -809,6 +832,35 @@
                 spinner.classList.add('hidden');
             }
         });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu && mobileMenuIcon) {
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenuIcon.classList.remove('fa-xmark');
+                    mobileMenuIcon.classList.add('fa-bars');
+                } else {
+                    mobileMenuIcon.classList.remove('fa-bars');
+                    mobileMenuIcon.classList.add('fa-xmark');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+        }
     </script>
 </body>
 </html>
