@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunShade Systems | The Digital Canopy Business Plan Infographic</title>
+	<link rel="icon" href="/assets/favicon.png" type="image/png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        sunshine: {
+                            orange: '#CC5500',
+                            orangeLight: '#FF6D00',
+                            orangeDark: '#993D00',
+                            cyan: '#00E5FF',
+                            cyanDark: '#008B9B',
+                            navyDark: '#0B1120',
+                            navyCard: '#151D30',
+                            navyBorder: '#243049'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Plotly.js CDN -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B1120;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #243049;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CC5500;
+        }
+
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(204, 85, 0, 0.25);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+        .text-gradient-orange {
+            background: linear-gradient(135deg, #FF6D00 0%, #CC5500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #00E5FF 0%, #008B9B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#0B1120] text-slate-100 font-sans antialiased min-h-screen selection:bg-sunshine-orange selection:text-white">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-[#0B1120]/90 backdrop-blur-md border-b border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sunshine-orange to-amber-600 flex items-center justify-center font-bold text-xl text-white shadow-lg glow-orange">
+                    S
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-lg tracking-wider text-white">SUNSHADE</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-sunshine-cyan/10 text-sunshine-cyan border border-sunshine-cyan/30 font-mono">SYSTEMS</span>
+                    </div>
+                    <p class="text-xs text-slate-400">The Digital Canopy Infrastructure</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#overview" class="text-slate-300 hover:text-sunshine-cyan transition">Overview</a>
+                <a href="#architecture" class="text-slate-300 hover:text-sunshine-cyan transition">2026 Arch Comparison</a>
+                <a href="#roi-calculator" class="text-slate-300 hover:text-sunshine-orange transition">ROI Calculator</a>
+                <a href="#financials" class="text-slate-300 hover:text-sunshine-cyan transition">Financials & CapEx</a>
+                <a href="#roadmap" class="text-slate-300 hover:text-sunshine-orange transition">10-Year Growth</a>
+                <a href="#hardware" class="text-slate-300 hover:text-sunshine-cyan transition">Flypack Specs</a>
+            </nav>
+
+            <a href="https://madeintheshade.wtf" target="_blank" class="px-4 py-2 text-xs font-semibold rounded-lg bg-sunshine-orange hover:bg-sunshine-orangeLight text-white transition shadow-md flex items-center space-x-1.5">
+                <span>MadeInTheShade.wtf</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="overview" class="relative py-12 lg:py-16 overflow-hidden border-b border-sunshine-navyBorder bg-gradient-to-b from-[#0B1120] via-sunshine-navyCard/40 to-[#0B1120]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-sunshine-orange/10 border border-sunshine-orange/30 text-sunshine-orange text-xs font-semibold">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>DECENTRALIZED EDGE INFRASTRUCTURE • 2026 EDITION</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                        Ending Datacenter Monopoly. <br>
+                        <span class="text-gradient-orange">Deploying The Digital Canopy.</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        SunShade Systems replaces centralized hyperscale cloud dependency with zero-trust, edge-computed mobile Flypacks and modular LearnStations. Built for mission-critical temporary events, municipal DORA corridors, and community spaces.
+                    </p>
+
+                    <!-- QUICK KPI CARDS -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                        <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                            <div class="text-xs text-slate-400">Flypack CapEx</div>
+                            <div class="text-xl font-bold text-sunshine-cyan font-mono mt-0.5">$19,500</div>
+                            <div class="text-[10px] text-emerald-400 mt-1 flex items-center">
+                                <i data-lucide="check-circle" class="w-3 h-3 mr-1"></i> Turnkey Rig BOM
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                            <div class="text-xs text-slate-400">Net Profit Margin</div>
+                            <div class="text-xl font-bold text-sunshine-orange font-mono mt-0.5">70%+</div>
+                            <div class="text-[10px] text-emerald-400 mt-1 flex items-center">
+                                <i data-lucide="trending-up" class="w-3 h-3 mr-1"></i> High Yield SLA
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                            <div class="text-xs text-slate-400">Network Uptime</div>
+                            <div class="text-xl font-bold text-sunshine-cyan font-mono mt-0.5">99.9%</div>
+                            <div class="text-[10px] text-slate-400 mt-1">Hard-Walled VLAN</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                            <div class="text-xs text-slate-400">Data Mining</div>
+                            <div class="text-xl font-bold text-emerald-400 font-mono mt-0.5">0.0%</div>
+                            <div class="text-[10px] text-slate-400 mt-1">Post-Quantum ZK</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT GRAPHIC: ARCHITECTURE OVERVIEW CARD -->
+                <div class="lg:col-span-5">
+                    <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder shadow-2xl relative glow-cyan">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-mono text-sunshine-cyan flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-sunshine-cyan mr-2 animate-ping"></span>
+                                ACTIVE NODE TELEMETRY
+                            </span>
+                            <span class="text-[10px] text-slate-400 font-mono">SunShade OS v1.0</span>
+                        </div>
+
+                        <!-- DIAGRAM SCHEMATIC -->
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="p-3 rounded-lg bg-[#0B1120] border border-sunshine-orange/40 flex justify-between items-center">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="credit-card" class="w-4 h-4 text-sunshine-orange"></i>
+                                    <span>VLAN 10: Merchant POS</span>
+                                </div>
+                                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px]">QoS PRIORITY 1</span>
+                            </div>
+
+                            <div class="p-3 rounded-lg bg-[#0B1120] border border-sunshine-cyan/40 flex justify-between items-center">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="radio" class="w-4 h-4 text-sunshine-cyan"></i>
+                                    <span>VLAN 20: Stage Comms</span>
+                                </div>
+                                <span class="px-2 py-0.5 rounded bg-sunshine-cyan/10 text-sunshine-cyan border border-sunshine-cyan/30 text-[10px]">QoS PRIORITY 2</span>
+                            </div>
+
+                            <div class="p-3 rounded-lg bg-[#0B1120] border border-slate-700 flex justify-between items-center text-slate-400">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="users" class="w-4 h-4 text-slate-400"></i>
+                                    <span>VLAN 30: Guest Wi-Fi</span>
+                                </div>
+                                <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px]">THROTTLED/CACHED</span>
+                            </div>
+
+                            <div class="p-3 rounded-lg bg-gradient-to-r from-sunshine-orange/20 to-sunshine-cyan/20 border border-sunshine-navyBorder text-center">
+                                <div class="text-[11px] text-white font-semibold flex items-center justify-center space-x-2">
+                                    <i data-lucide="cpu" class="w-4 h-4 text-sunshine-cyan"></i>
+                                    <span>Local NVMe Edge Storage & Starlink/PTP Backhaul</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-sunshine-navyBorder flex justify-between text-[11px] text-slate-400">
+                            <span>Zero Public WAN Dependency</span>
+                            <span class="text-sunshine-orange font-bold">100% Local POS Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: ARCHITECTURE COMPARISON (SUNSHADE vs 2026 STANDARD EVENT NETWORK) -->
+    <section id="architecture" class="py-12 lg:py-16 border-b border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-mono text-sunshine-cyan uppercase tracking-widest">Architectural Paradigm Shift</h2>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    Standard 2026 Event Network vs. <span class="text-gradient-orange">The Digital Canopy</span>
+                </h3>
+                <p class="text-slate-400 text-sm">
+                    Why traditional 2026 event Wi-Fi collapses under heavy cellular traffic and how SunShade’s zero-trust edge compute guarantees point-of-sale uptime.
+                </p>
+            </div>
+
+            <!-- COMPARISON RADAR & METRICS MATRIX -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- RADAR CHART -->
+                <div class="lg:col-span-6 p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-sm font-bold text-white flex items-center">
+                            <i data-lucide="radar" class="w-4 h-4 text-sunshine-cyan mr-2"></i>
+                            Technical Performance Vector
+                        </h4>
+                        <span class="text-[10px] text-slate-400 font-mono">2026 Industry Benchmark</span>
+                    </div>
+                    <div class="relative h-[320px] w-full">
+                        <canvas id="architectureRadarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- SIDE BY SIDE COMPARISON CARDS -->
+                <div class="lg:col-span-6 space-y-4">
+                    <!-- STANDARD 2026 EVENT NETWORK -->
+                    <div class="p-5 rounded-xl bg-red-950/20 border border-red-500/30 space-y-2">
+                        <div class="flex justify-between items-center text-red-400 font-bold text-sm">
+                            <span class="flex items-center">
+                                <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
+                                Standard 2026 Event Wi-Fi Stack
+                            </span>
+                            <span class="text-xs font-mono bg-red-500/10 px-2 py-0.5 rounded border border-red-500/30">Fragile SaaS</span>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-1.5 pt-1 font-mono">
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">✗</span>
+                                <span><strong>Single-Pipe Backhaul:</strong> Heavy reliance on local 5G towers that collapse when crowds exceed 15k.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">✗</span>
+                                <span><strong>Soft Traffic Queuing:</strong> Public Wi-Fi bandwidth starves POS terminals, leading to $1,000s/min in lost sales.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">✗</span>
+                                <span><strong>Data Monetization:</strong> Captive portals mine user emails and location data to offset SaaS licensing.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">✗</span>
+                                <span><strong>High Cloud Latency:</strong> All transactions route to distant hyperscale server farms (80ms - 250ms latency).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- SUNSHADE DIGITAL CANOPY -->
+                    <div class="p-5 rounded-xl bg-sunshine-navyCard border border-sunshine-cyan/40 space-y-2 glow-cyan">
+                        <div class="flex justify-between items-center text-sunshine-cyan font-bold text-sm">
+                            <span class="flex items-center">
+                                <i data-lucide="shield" class="w-4 h-4 mr-2 text-sunshine-orange"></i>
+                                SunShade Systems Digital Canopy (2026)
+                            </span>
+                            <span class="text-xs font-mono bg-sunshine-cyan/10 px-2 py-0.5 rounded border border-sunshine-cyan/30 text-sunshine-cyan">Zero-Trust Edge</span>
+                        </div>
+                        <ul class="text-xs text-slate-200 space-y-1.5 pt-1 font-mono">
+                            <li class="flex items-start">
+                                <span class="text-sunshine-cyan mr-2">✓</span>
+                                <span><strong>Tri-Backhaul Matrix:</strong> Integrated Starlink, long-range PTP Microwave, & dual 5G SA failover.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sunshine-cyan mr-2">✓</span>
+                                <span><strong>Hard-Walled VLAN Isolation:</strong> Merchant POS runs on dedicated, un-throttleable hardware queues.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sunshine-cyan mr-2">✓</span>
+                                <span><strong>Absolute Data Sovereignty:</strong> Local NVMe caching with zero user tracking & zk-STARK privacy.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sunshine-cyan mr-2">✓</span>
+                                <span><strong>Micro-Latency Edge AI:</strong> Sub-5ms local processing directly inside Flypack nodes.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE ROI CALCULATOR -->
+    <section id="roi-calculator" class="py-12 lg:py-16 bg-gradient-to-b from-[#0B1120] via-sunshine-navyCard/30 to-[#0B1120] border-b border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sunshine-orange/10 border border-sunshine-orange/30 text-sunshine-orange text-xs font-mono">
+                    <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                    <span>INTERACTIVE EVENT ECONOMICS MODEL</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    Event ROI & Net Profit Calculator
+                </h2>
+                <p class="text-slate-400 text-sm">
+                    Adjust attendee size and event parameters to automatically calculate per-event net profits, OpEx, and point-of-sale revenue protected from cellular failure.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- CONTROLS & INPUT FORM -->
+                <div class="lg:col-span-5 p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-6">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center justify-between">
+                        <span>Event Parameters</span>
+                        <i data-lucide="sliders" class="w-4 h-4 text-sunshine-orange"></i>
+                    </h3>
+
+                    <!-- SLIDER 1: ATTENDEE COUNT -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <label class="text-slate-300 font-medium">Estimated Attendees</label>
+                            <span id="attendeeValue" class="text-sunshine-orange font-bold font-mono text-sm">25,000</span>
+                        </div>
+                        <input type="range" id="attendeeSlider" min="5000" max="250000" step="5000" value="25000" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sunshine-orange">
+                        <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+                            <span>5k (Local Fair)</span>
+                            <span>50k (Fest)</span>
+                            <span>250k+ (Blink/Taste)</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDER 2: VENDOR / MERCHANT COUNT -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <label class="text-slate-300 font-medium">Vendor / POS Terminals</label>
+                            <span id="vendorValue" class="text-sunshine-cyan font-bold font-mono text-sm">100</span>
+                        </div>
+                        <input type="range" id="vendorSlider" min="10" max="500" step="10" value="100" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sunshine-cyan">
+                        <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+                            <span>10 Booths</span>
+                            <span>250 Food Trucks</span>
+                            <span>500+ Mega Fest</span>
+                        </div>
+                    </div>
+
+                    <!-- INPUT 3: EVENT DURATION (DAYS) -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <label class="text-slate-300 font-medium">Event Duration (Days)</label>
+                            <span id="daysValue" class="text-white font-bold font-mono text-sm">3 Days</span>
+                        </div>
+                        <input type="range" id="daysSlider" min="1" max="10" step="1" value="3" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-slate-400">
+                    </div>
+
+                    <!-- TOGGLE / SELECTOR OPTIONS -->
+                    <div class="pt-2 border-t border-sunshine-navyBorder space-y-3 text-xs">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Public Wi-Fi Sponsorship Fee</span>
+                            <span class="text-emerald-400 font-mono font-bold">$0.75 / user</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">POS Package Fee / Vendor</span>
+                            <span class="text-sunshine-cyan font-mono font-bold">$1,200 / event</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Flypack Rigs Required</span>
+                            <span id="rigsCount" class="text-sunshine-orange font-mono font-bold">3 Rigs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROI OUTPUT DASHBOARD -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- PRIMARY KPI SUMMARY GRID -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- GROSS REVENUE -->
+                        <div class="p-5 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-1">
+                            <div class="text-xs text-slate-400">Total Event Revenue</div>
+                            <div id="calcGrossRevenue" class="text-2xl font-extrabold text-white font-mono">$143,250</div>
+                            <div class="text-[10px] text-slate-400">Vendors + Wi-Fi Sponsorship</div>
+                        </div>
+
+                        <!-- TOTAL OPEX -->
+                        <div class="p-5 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-1">
+                            <div class="text-xs text-slate-400">Operational Cost (OpEx)</div>
+                            <div id="calcOpEx" class="text-2xl font-extrabold text-red-400 font-mono">$7,340</div>
+                            <div class="text-[10px] text-slate-400">Bandwidth, Crew, Depreciation</div>
+                        </div>
+
+                        <!-- NET PROFIT -->
+                        <div class="p-5 rounded-2xl bg-sunshine-navyCard border border-sunshine-orange/50 glow-orange space-y-1">
+                            <div class="text-xs text-sunshine-orange font-semibold">Net Event Profit</div>
+                            <div id="calcNetProfit" class="text-2xl font-black text-sunshine-orange font-mono">$135,910</div>
+                            <div id="calcMargin" class="text-[10px] text-emerald-400 font-mono font-bold">94.8% Net Margin</div>
+                        </div>
+                    </div>
+
+                    <!-- VALUE-ADD CARDS: POS REVENUE SAVED & CAPEX PAYBACK -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-sunshine-navyCard border border-sunshine-cyan/30 flex items-start space-x-3">
+                            <div class="p-2.5 rounded-lg bg-sunshine-cyan/10 text-sunshine-cyan mt-1">
+                                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="text-xs font-bold text-white">Merchant Sales Protected</div>
+                                <div id="calcPosSaved" class="text-xl font-extrabold text-sunshine-cyan font-mono">$540,000</div>
+                                <div class="text-[10px] text-slate-400">Estimated POS revenue saved from standard cellular tower outages (12% baseline outage).</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder flex items-start space-x-3">
+                            <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 mt-1">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="text-xs font-bold text-white">Rig CapEx Payback Speed</div>
+                                <div id="calcPayback" class="text-xl font-extrabold text-emerald-400 font-mono">0.4 Events</div>
+                                <div class="text-[10px] text-slate-400">Number of events needed to completely pay off a $19,500 Flypack hardware rig.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VISUAL BREAKDOWN BAR CHART -->
+                    <div class="p-5 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                        <h4 class="text-xs font-bold text-slate-300 mb-3 font-mono">Revenue vs. Cost Breakdown ($)</h4>
+                        <div class="relative h-[180px] w-full">
+                            <canvas id="roiBreakdownChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FINANCIAL PROJECTIONS & UNIT ECONOMICS -->
+    <section id="financials" class="py-12 lg:py-16 border-b border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-mono text-sunshine-cyan uppercase tracking-widest">SBA & Investor Bankability</h2>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    5-Year Financial Outlook & Unit Economics
+                </h3>
+                <p class="text-slate-400 text-sm">
+                    Structured for low CapEx hardware scalability ($19.5k/rig) and high-margin recurring event infrastructure retainers.
+                </p>
+            </div>
+
+            <!-- FINANCIAL CHART & CAPEX BREAKDOWN GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- 5-YEAR PROJECTION CHART -->
+                <div class="lg:col-span-7 p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h4 class="text-sm font-bold text-white">5-Year Revenue & Net Margin Growth</h4>
+                            <p class="text-xs text-slate-400">Events, Municipal DORA Corridors, & LearnStation Deployments</p>
+                        </div>
+                        <span class="text-xs font-mono text-sunshine-orange bg-sunshine-orange/10 px-2 py-1 rounded border border-sunshine-orange/30">75%+ Margin</span>
+                    </div>
+                    <div class="relative h-[300px] w-full">
+                        <canvas id="financialsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- CAPEX BOM BREAKDOWN CARD -->
+                <div class="lg:col-span-5 p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-sm font-bold text-white flex items-center">
+                            <i data-lucide="package" class="w-4 h-4 text-sunshine-orange mr-2"></i>
+                            Flypack Rig Bill of Materials ($19.5k)
+                        </h4>
+                        <span class="text-[10px] text-slate-400 font-mono">COTS Assembly</span>
+                    </div>
+
+                    <div class="space-y-2 text-xs font-mono">
+                        <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
+                            <span class="text-slate-300">12U Shock-Mount Rolling Rack Chassis</span>
+                            <span class="text-sunshine-cyan font-bold">$2,800</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
+                            <span class="text-slate-300">2.0 kWh LiFePO4 Power Reserve + Pure Sine</span>
+                            <span class="text-sunshine-cyan font-bold">$3,200</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
+                            <span class="text-slate-300">20ft Pneumatic Mast + Solar Fan-Blade Canopy</span>
+                            <span class="text-sunshine-cyan font-bold">$4,500</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
+                            <span class="text-slate-300">Tri-Backhaul (Starlink High-Performance + PTP)</span>
+                            <span class="text-sunshine-cyan font-bold">$4,200</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
+                            <span class="text-slate-300">Local ARM/NVMe Edge Compute + Dual 5G SA</span>
+                            <span class="text-sunshine-cyan font-bold">$3,100</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
+                            <span class="text-slate-300">360° IP Camera Suite + Hardware Integration</span>
+                            <span class="text-sunshine-cyan font-bold">$1,700</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-sunshine-orange/10 border border-sunshine-orange/30 text-[11px] text-slate-300 space-y-1">
+                        <div class="font-bold text-sunshine-orange">Commercial Off-The-Shelf (COTS) Strategy:</div>
+                        <p>No silicon fabrication risk. Built with standardized, ruggedized field components engineered for rapid assembly in Cincinnati, OH.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: 10-YEAR STRATEGIC ROADMAP & HORIZON TRUST -->
+    <section id="roadmap" class="py-12 lg:py-16 bg-gradient-to-b from-[#0B1120] via-sunshine-navyCard/30 to-[#0B1120] border-b border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-mono text-sunshine-orange uppercase tracking-widest">Decentralized Growth Strategy</h2>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    10-Year Roadmap: <span class="text-gradient-cyan">The Digital Canopy Expansion</span>
+                </h3>
+                <p class="text-slate-400 text-sm">
+                    From regional event trial stress-testing to municipal DORA corridors, K-12 LearnStations, and global Horizon Trust Network post-quantum governance.
+                </p>
+            </div>
+
+            <!-- PLOTLY NODE GROWTH CHART -->
+            <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="text-sm font-bold text-white flex items-center">
+                        <i data-lucide="network" class="w-4 h-4 text-sunshine-cyan mr-2"></i>
+                        10-Year Cumulative Network Node Trajectory
+                    </h4>
+                    <span class="text-[10px] text-slate-400 font-mono">Plotly.js Interactive Mesh Chart</span>
+                </div>
+                <div id="plotlyNodeGrowth" class="w-full h-[320px]"></div>
+            </div>
+
+            <!-- 3-PHASE DETAILED ROADMAP CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- PHASE 1 -->
+                <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-orange/40 space-y-4 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-sunshine-orange/10 text-sunshine-orange border border-sunshine-orange/30 font-bold">PHASE 1 • 2026-2027</span>
+                        <i data-lucide="tent" class="w-5 h-5 text-sunshine-orange"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Event Infrastructure & Regional Trials</h4>
+                    <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                        <li class="flex items-start">
+                            <span class="text-sunshine-orange mr-2">▸</span>
+                            <span><strong>Beta Trial Pilot:</strong> Ohio Renaissance Festival & Cincinnati Comic Expo (Controlled 15k-35k crowds).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-orange mr-2">▸</span>
+                            <span><strong>Urban Stress Test:</strong> Oktoberfest Zinzinnati & BLINK (Cellular collapse protection for 500k+ users).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-orange mr-2">▸</span>
+                            <span><strong>SBA & Capital Bridge:</strong> $300k Emerging Founders Residency runway & Flypack fleet fabrication.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PHASE 2 -->
+                <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-cyan/40 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-sunshine-cyan/10 text-sunshine-cyan border border-sunshine-cyan/30 font-bold">PHASE 2 • 2028-2030</span>
+                        <i data-lucide="building-2" class="w-5 h-5 text-sunshine-cyan"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Municipal DORA & LearnStations</h4>
+                    <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                        <li class="flex items-start">
+                            <span class="text-sunshine-cyan mr-2">▸</span>
+                            <span><strong>DORA Corridor Expansion:</strong> Semi-permanent nodes along Cincinnati Freedom Way & Riverfront bridges.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-cyan mr-2">▸</span>
+                            <span><strong>K-12 LearnStations:</strong> Integrating recycled HDPE modular desks with embedded edge LLM compute in schools.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-cyan mr-2">▸</span>
+                            <span><strong>Maker Network & Toxicity Tax:</strong> Autonomous monetization of toxic behavior funding school maintenance.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PHASE 3 -->
+                <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-purple-500/40 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30 font-bold">PHASE 3 • 2031-2036+</span>
+                        <i data-lucide="globe-2" class="w-5 h-5 text-purple-400"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">The Horizon Trust & Global Utility</h4>
+                    <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">▸</span>
+                            <span><strong>Horizon Trust Network:</strong> Post-quantum zk-STARK cryptographic identity & data sovereignty.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">▸</span>
+                            <span><strong>Decentralized Public Utility:</strong> Un-censorable, community-owned mesh取代 corporate cloud monopolies.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-400 mr-2">▸</span>
+                            <span><strong>Orbital Mesh Integration:</strong> Bridging terrestrial edge nodes with space-based solar & satellite relays.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HARDWARE SPECS & DEPLOYMENT STATES -->
+    <section id="hardware" class="py-12 lg:py-16 border-b border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-mono text-sunshine-cyan uppercase tracking-widest">Field Hardware Engineering</h2>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">
+                    Flypack Node Deployment States
+                </h3>
+                <p class="text-slate-400 text-sm">
+                    Designed to transition seamlessly between compact SUV/van transport mode and 20ft operational altitude.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- MODE 1: COMPACTED TRANSIT MODE -->
+                <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-300 font-mono flex items-center">
+                            <i data-lucide="truck" class="w-4 h-4 text-sunshine-orange mr-2"></i>
+                            MODE 1: COMPACTED (TRANSIT / STORAGE)
+                        </span>
+                        <span class="text-xs font-mono text-slate-400">Height: ~4 ft</span>
+                    </div>
+
+                    <!-- GRAPHIC SCHEMATIC representation -->
+                    <div class="p-6 rounded-xl bg-[#0B1120] border border-sunshine-navyBorder text-center space-y-3">
+                        <div class="w-32 h-20 mx-auto rounded-lg border-2 border-sunshine-orange/60 bg-sunshine-orange/10 flex flex-col justify-center items-center relative">
+                            <span class="text-[11px] font-mono text-sunshine-orange font-bold">12U Shock-Mount</span>
+                            <span class="text-[9px] text-slate-400 font-mono">Rolling Chassis</span>
+                            <!-- Wheels -->
+                            <div class="absolute -bottom-2 left-2 w-3 h-3 rounded-full bg-slate-600 border border-slate-400"></div>
+                            <div class="absolute -bottom-2 right-2 w-3 h-3 rounded-full bg-slate-600 border border-slate-400"></div>
+                        </div>
+                        <div class="text-[11px] text-slate-400 font-mono">
+                            Retracted 20ft Telescoping Mast Strapped Horizontally
+                        </div>
+                    </div>
+
+                    <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                        <li class="flex items-start">
+                            <span class="text-sunshine-orange mr-2">✓</span>
+                            <span>IP67 Weatherproof sealed Pelican / Rolling 12U rack chassis.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-orange mr-2">✓</span>
+                            <span>Fits easily inside SUV, cargo van, or local staging facility (165 lbs dry weight).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-orange mr-2">✓</span>
+                            <span>Internal LiFePO4 batteries locked and shock-isolated during transit.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- MODE 2: ELONGATED OPERATIONAL MODE -->
+                <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-cyan/40 space-y-4 glow-cyan">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-sunshine-cyan font-mono flex items-center">
+                            <i data-lucide="wifi" class="w-4 h-4 text-sunshine-cyan mr-2"></i>
+                            MODE 2: ELONGATED (DEPLOYED OPERATIONAL)
+                        </span>
+                        <span class="text-xs font-mono text-sunshine-cyan">Height: 20 ft (6m)</span>
+                    </div>
+
+                    <!-- GRAPHIC SCHEMATIC representation -->
+                    <div class="p-6 rounded-xl bg-[#0B1120] border border-sunshine-cyan/30 text-center space-y-2">
+                        <!-- Mast schematic -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-16 h-4 rounded bg-sunshine-cyan/20 border border-sunshine-cyan text-[8px] font-mono text-sunshine-cyan flex items-center justify-center">
+                                Solar Canopy + Fan
+                            </div>
+                            <div class="w-1 h-12 bg-sunshine-cyan/60"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-sunshine-orange animate-pulse"></div>
+                            <div class="text-[8px] text-sunshine-orange font-mono">360° Mast IP Camera</div>
+                            <div class="w-1 h-12 bg-sunshine-cyan/60"></div>
+                            <div class="w-28 h-12 rounded bg-sunshine-navyCard border-2 border-sunshine-cyan flex flex-col justify-center items-center">
+                                <span class="text-[10px] font-mono text-white font-bold">Ground Base Rig</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="text-xs text-slate-200 space-y-2 font-mono">
+                        <li class="flex items-start">
+                            <span class="text-sunshine-cyan mr-2">✓</span>
+                            <span>20ft Pneumatic telescoping mast extends for clear line-of-sight Wi-Fi & Starlink.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-cyan mr-2">✓</span>
+                            <span>Solar panel-topped fan blades provide active cooling (+22W net power yield).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sunshine-cyan mr-2">✓</span>
+                            <span>360° IP Camera provides perimeter security & wind sway telemetry with local NVMe storage.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CTA -->
+    <footer class="py-12 bg-[#070B14] border-t border-sunshine-navyBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-sunshine-orange flex items-center justify-center font-bold text-white text-lg">
+                    S
+                </div>
+                <span class="text-xl font-bold tracking-wider text-white">SUNSHADE SYSTEMS, LLC</span>
+            </div>
+            <p class="text-xs text-slate-400 max-w-xl mx-auto leading-relaxed">
+                Building community-owned, privacy-first digital infrastructure. Un-censorable edge compute powered by SunShade OS and the Horizon Trust Network.
+            </p>
+            <div class="flex justify-center space-x-6 text-xs text-slate-400 font-mono">
+                <a href="https://madeintheshade.wtf" target="_blank" class="hover:text-sunshine-orange transition">MadeInTheShade.wtf</a>
+                <span>•</span>
+                <a href="https://sunshade.icu" target="_blank" class="hover:text-sunshine-cyan transition">SunShade.icu</a>
+                <span>•</span>
+                <span>Cincinnati, OH</span>
+            </div>
+            <div class="text-[10px] text-slate-600 font-mono pt-4">
+                © 2026 SunShade Systems, LLC. All Rights Reserved. Prepared for SBA & Alloy Development.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR CHARTS & CALCULATOR -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // -------------------------------------------------------------
+        // 1. ARCHITECTURE RADAR CHART (Chart.js)
+        // -------------------------------------------------------------
+        const radarCtx = document.getElementById('architectureRadarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'POS SLA Security',
+                    'Data Sovereignty',
+                    'Latency Optimization',
+                    'Bandwidth Autonomy',
+                    'Off-Grid Resilience',
+                    'Setup Speed'
+                ],
+                datasets: [
+                    {
+                        label: 'SunShade Canopy (2026)',
+                        data: [98, 100, 95, 92, 95, 90],
+                        fill: true,
+                        backgroundColor: 'rgba(0, 229, 255, 0.2)',
+                        borderColor: '#00E5FF',
+                        pointBackgroundColor: '#00E5FF',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#00E5FF'
+                    },
+                    {
+                        label: 'Standard 2026 Event Network',
+                        data: [45, 15, 40, 50, 30, 60],
+                        fill: true,
+                        backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                        borderColor: '#EF4444',
+                        pointBackgroundColor: '#EF4444',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#EF4444'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#243049' },
+                        grid: { color: '#243049' },
+                        pointLabels: {
+                            color: '#CBD5E1',
+                            font: { size: 10, family: 'Inter' }
+                        },
+                        ticks: {
+                            display: false,
+                            max: 100,
+                            min: 0
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#E2E8F0',
+                            font: { family: 'Inter', size: 11 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // -------------------------------------------------------------
+        // 2. ROI CALCULATOR LOGIC & BREAKDOWN CHART
+        // -------------------------------------------------------------
+        const attendeeSlider = document.getElementById('attendeeSlider');
+        const vendorSlider = document.getElementById('vendorSlider');
+        const daysSlider = document.getElementById('daysSlider');
+
+        const attendeeValue = document.getElementById('attendeeValue');
+        const vendorValue = document.getElementById('vendorValue');
+        const daysValue = document.getElementById('daysValue');
+        const rigsCount = document.getElementById('rigsCount');
+
+        const calcGrossRevenue = document.getElementById('calcGrossRevenue');
+        const calcOpEx = document.getElementById('calcOpEx');
+        const calcNetProfit = document.getElementById('calcNetProfit');
+        const calcMargin = document.getElementById('calcMargin');
+        const calcPosSaved = document.getElementById('calcPosSaved');
+        const calcPayback = document.getElementById('calcPayback');
+
+        // Breakdown Chart Instance
+        const roiCtx = document.getElementById('roiBreakdownChart').getContext('2d');
+        const roiChart = new Chart(roiCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Vendor POS Fees', 'Wi-Fi Sponsorship', 'Prod Retainer', 'OpEx (Bandwidth/Crew)', 'Net Profit'],
+                datasets: [{
+                    label: 'Amount ($)',
+                    data: [120000, 18750, 4500, 7340, 135910],
+                    backgroundColor: [
+                        '#00E5FF',
+                        '#008B9B',
+                        '#38BDF8',
+                        '#EF4444',
+                        '#CC5500'
+                    ],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#94A3B8', font: { size: 10 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#94A3B8',
+                            font: { size: 10 },
+                            callback: value => '$' + (value / 1000) + 'k'
+                        },
+                        grid: { color: '#243049' }
+                    }
+                }
+            }
+        });
+
+        function updateROICalculator() {
+            const attendees = parseInt(attendeeSlider.value);
+            const vendors = parseInt(vendorSlider.value);
+            const days = parseInt(daysSlider.value);
+
+            // Display Values
+            attendeeValue.innerText = attendees.toLocaleString();
+            vendorValue.innerText = vendors.toLocaleString();
+            daysValue.innerText = days + ' Day' + (days > 1 ? 's' : '');
+
+            // Calculations
+            // Rigs required: 1 per 10,000 attendees (min 1)
+            const rigs = Math.max(1, Math.ceil(attendees / 10000));
+            rigsCount.innerText = rigs + ' Rig' + (rigs > 1 ? 's' : '');
+
+            // Revenue Streams
+            const vendorRevenue = vendors * 1200; // $1200 per vendor POS package
+            const wifiSponsorship = attendees * 0.75; // $0.75 per attendee captive portal sponsorship
+            const prodRetainer = 4500; // Base event infrastructure fee
+            const grossRevenue = vendorRevenue + wifiSponsorship + prodRetainer;
+
+            // OpEx calculation
+            const bandwidthCost = 600 * rigs * days;
+            const crewCost = 1080 * rigs * days;
+            const depreciation = 500 * rigs;
+            const insurance = 800;
+            const totalOpEx = bandwidthCost + crewCost + depreciation + insurance;
+
+            // Profit & Margins
+            const netProfit = grossRevenue - totalOpEx;
+            const margin = ((netProfit / grossRevenue) * 100).toFixed(1);
+
+            // Value Add
+            const posVolumePerVendorPerDay = 15000;
+            const posSaved = Math.round(vendors * days * posVolumePerVendorPerDay * 0.12); // 12% baseline outage loss
+            const paybackEvents = (19500 / netProfit).toFixed(1);
+
+            // Update UI
+            calcGrossRevenue.innerText = '$' + grossRevenue.toLocaleString();
+            calcOpEx.innerText = '$' + totalOpEx.toLocaleString();
+            calcNetProfit.innerText = '$' + netProfit.toLocaleString();
+            calcMargin.innerText = margin + '% Net Margin';
+            calcPosSaved.innerText = '$' + posSaved.toLocaleString();
+            calcPayback.innerText = paybackEvents <= 0.1 ? 'Instant' : paybackEvents + ' Events';
+
+            // Update Breakdown Chart
+            roiChart.data.datasets[0].data = [
+                vendorRevenue,
+                wifiSponsorship,
+                prodRetainer,
+                totalOpEx,
+                netProfit
+            ];
+            roiChart.update();
+        }
+
+        attendeeSlider.addEventListener('input', updateROICalculator);
+        vendorSlider.addEventListener('input', updateROICalculator);
+        daysSlider.addEventListener('input', updateROICalculator);
+
+        // Initial Calculation
+        updateROICalculator();
+
+        // -------------------------------------------------------------
+        // 3. FINANCIAL PROJECTIONS CHART (Chart.js)
+        // -------------------------------------------------------------
+        const finCtx = document.getElementById('financialsChart').getContext('2d');
+        new Chart(finCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Year 1 (2026)', 'Year 2 (2027)', 'Year 3 (2028)', 'Year 4 (2029)', 'Year 5 (2030)'],
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Gross Revenue ($)',
+                        data: [420000, 1250000, 3800000, 8900000, 18500000],
+                        backgroundColor: '#CC5500',
+                        borderRadius: 6
+                    },
+                    {
+                        type: 'line',
+                        label: 'Net Operating Margin (%)',
+                        data: [68, 74, 78, 81, 84],
+                        borderColor: '#00E5FF',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#00E5FF',
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#E2E8F0', font: { family: 'Inter', size: 11 } }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#94A3B8', font: { size: 10 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                        ticks: {
+                            color: '#94A3B8',
+                            font: { size: 10 },
+                            callback: value => '$' + (value / 1000000) + 'M'
+                        },
+                        grid: { color: '#243049' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        position: 'right',
+                        min: 0,
+                        max: 100,
+                        ticks: {
+                            color: '#00E5FF',
+                            font: { size: 10 },
+                            callback: value => value + '%'
+                        },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // -------------------------------------------------------------
+        // 4. 10-YEAR ROADMAP NODE GROWTH (Plotly.js)
+        // -------------------------------------------------------------
+        const years = [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036];
+        const eventNodes = [4, 12, 35, 80, 180, 350, 600, 950, 1400, 2000, 2800];
+        const learnStationNodes = [0, 15, 75, 250, 600, 1200, 2500, 4800, 8500, 14000, 22000];
+        const doraNodes = [0, 2, 8, 20, 45, 90, 160, 260, 400, 600, 900];
+
+        const trace1 = {
+            x: years,
+            y: eventNodes,
+            name: 'Event Flypack Rigs',
+            type: 'scatter',
+            mode: 'lines+markers',
+            line: { color: '#CC5500', width: 3 },
+            marker: { size: 6 }
+        };
+
+        const trace2 = {
+            x: years,
+            y: learnStationNodes,
+            name: 'School LearnStations',
+            type: 'scatter',
+            mode: 'lines+markers',
+            line: { color: '#00E5FF', width: 3 },
+            marker: { size: 6 }
+        };
+
+        const trace3 = {
+            x: years,
+            y: doraNodes,
+            name: 'Municipal DORA Corridors',
+            type: 'scatter',
+            mode: 'lines+markers',
+            line: { color: '#A855F7', width: 3 },
+            marker: { size: 6 }
+        };
+
+        const layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            margin: { t: 20, r: 20, l: 40, b: 40 },
+            showlegend: true,
+            legend: {
+                font: { color: '#E2E8F0', size: 10 },
+                orientation: 'h',
+                y: 1.15
+            },
+            xaxis: {
+                color: '#94A3B8',
+                gridcolor: '#243049',
+                dtick: 1
+            },
+            yaxis: {
+                color: '#94A3B8',
+                gridcolor: '#243049',
+                type: 'log',
+                autorange: true
+            }
+        };
+
+        Plotly.newPlot('plotlyNodeGrowth', [trace1, trace2, trace3], layout, { responsive: true, displayModeBar: false });
+    </script>
+</body>
+</html>
