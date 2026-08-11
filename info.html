@@ -375,7 +375,7 @@
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-slate-300">POS Package Fee / Vendor</span>
-                            <span class="text-sunshine-cyan font-mono font-bold">$1,200 / event</span>
+                            <span class="text-sunshine-cyan font-mono font-bold">$300 / event</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-slate-300">Flypack Rigs Required</span>
@@ -897,15 +897,15 @@
             rigsCount.innerText = rigs + ' Rig' + (rigs > 1 ? 's' : '');
 
             // Revenue Streams
-            const vendorRevenue = vendors * 1200; // $1200 per vendor POS package
+            const vendorRevenue = vendors * 300; // was $1200 per vendor POS package
             const wifiSponsorship = attendees * 0.75; // $0.75 per attendee captive portal sponsorship
             const prodRetainer = 4500; // Base event infrastructure fee
             const grossRevenue = vendorRevenue + wifiSponsorship + prodRetainer;
 
             // OpEx calculation
-            const bandwidthCost = 600 * rigs * days;
+            const bandwidthCost = 150; // check cost
             const crewCost = 1080 * rigs * days;
-            const depreciation = 500 * rigs;
+            const depreciation = 110 * rigs; // was 500/event * rigs
             const insurance = 800;
             const totalOpEx = bandwidthCost + crewCost + depreciation + insurance;
 
