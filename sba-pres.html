@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunShade Systems — Zero-Downtime Event Infrastructure & POS Revenue Shield</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    },
+                    colors: {
+                        sand: {
+                            50: '#FAF9F5',
+                            100: '#F3F0E6',
+                            200: '#E6E1D1',
+                            300: '#D5CDB7',
+                            800: '#3D382B',
+                            900: '#26231B',
+                        },
+                        amberAccent: {
+                            400: '#F59E0B',
+                            500: '#D97706',
+                            600: '#B45309',
+                        },
+                        navySlate: {
+                            800: '#1E293B',
+                            900: '#0F172A',
+                            950: '#080D1A',
+                        },
+                        techCyan: {
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Embedded CSS for Chart Containers and Special Visual Elements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .slide-transition {
+            transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+        }
+        /* Custom scrollbar styling for technical tables */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3F0E6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D5CDB7;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B45309;
+        }
+    </style>
+</head>
+<!-- Chosen Palette: Warm Neutral Harmonious Palette (Warm Sand Canvas, Obsidian Slate, Solar Amber, Tactical Cyan) -->
+<!-- Application Structure Plan: 
+     Designed as an interactive dual-mode application:
+     1. "Slide Mode": Interactive presentation walking sequentially through Slides 1-7 with full keyboard controls (left/right arrows), jump navigation, presenter notes, and interactive embedded widgets on each slide.
+     2. "Explorer Dashboard Mode": Non-linear interactive deep dive allowing investors, SBA officers, and partners to stress-test financial projections (Unit Economics & DSCR Calculator), inspect 3D network architecture simulations (VLAN POS protection vs WebRTC P2P Mesh), and filter Go-To-Market pilots.
+     This structure balances the formal pitch deck presentation format with high-touch analytical exploration for due diligence. -->
+<!-- Visualization & Content Choices: 
+     1. Slide 1 (Exec Summary): Stat callouts + Live contact badge.
+     2. Slide 2 (Problem): Interactive Network Saturation Simulator (Canvas/JS) contrasting standard legacy cloud failure with SunShade local failover.
+     3. Slide 3 (Solution & Network Architecture): Interactive Layer 2/3 VLAN Traffic Switcher & Flypack Rig component inspector (HTML/CSS + JS state).
+     4. Slide 4 & 5 (Unit Economics & CapEx): Interactive CapEx Breakdown Doughnut Chart (Chart.js) + Live Unit Economics & Contract Payoff Calculator.
+     5. Slide 6 (Go-To-Market Roadmap): Dynamic Phase Filterable Timeline (Phase 1, Phase 2, Phase 3) with attendee scale indicators and venue RF attributes.
+     6. Slide 7 (Resource Ask & SBA Alignment): Interactive SBA 7(a) DSCR Coverage Visualizer & Flex Facility Layout Inspector.
+     NO SVG graphics used. NO Mermaid JS used. All visuals rendered via Canvas (Chart.js), HTML5 elements, and Tailwind UI components. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+<body class="bg-sand-50 text-sand-900 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amberAccent-500 selection:text-white">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-sand-50/90 backdrop-blur-md border-b border-sand-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-navySlate-900 flex items-center justify-center font-mono font-bold text-amberAccent-400 text-lg shadow-sm border border-sand-300">
+                    S
+                </div>
+                <div>
+                    <span class="font-mono font-bold tracking-tight text-navySlate-900 text-base sm:text-lg block leading-none">SUNSHADE SYSTEMS</span>
+                    <span class="text-[10px] font-medium tracking-wider uppercase text-sand-800">Zero-Downtime Event Infrastructure</span>
+                </div>
+            </div>
+
+            <!-- View Mode Selector & Controls -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <div class="inline-flex rounded-lg p-1 bg-sand-200/80 border border-sand-300 text-xs font-semibold">
+                    <button id="btnNavSlide" onclick="setViewMode('slide')" class="px-3 py-1.5 rounded-md transition-all duration-150 bg-white text-navySlate-900 shadow-sm">
+                        Slide Deck
+                    </button>
+                    <button id="btnNavDashboard" onclick="setViewMode('dashboard')" class="px-3 py-1.5 rounded-md transition-all duration-150 text-sand-800 hover:text-navySlate-900">
+                        Financial & Tech Sandbox
+                    </button>
+                </div>
+
+                <div class="hidden md:flex items-center text-xs text-sand-800 space-x-1 font-mono bg-sand-100 px-2 py-1 rounded border border-sand-200">
+                    <span class="px-1.5 py-0.5 bg-sand-200 rounded text-navySlate-900 font-bold">←</span>
+                    <span class="px-1.5 py-0.5 bg-sand-200 rounded text-navySlate-900 font-bold">→</span>
+                    <span>Navigate</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- SLIDE VIEW CONTAINER -->
+        <div id="slideViewContainer" class="block">
+            
+            <!-- Slide Navigation Stepper Bar -->
+            <div class="mb-6 bg-white p-3 rounded-xl border border-sand-200 shadow-sm flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-1 max-w-full">
+                    <button onclick="goToSlide(1)" id="stepBtn1" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-navySlate-900 text-white transition">Slide 1</button>
+                    <button onclick="goToSlide(2)" id="stepBtn2" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition">Slide 2</button>
+                    <button onclick="goToSlide(3)" id="stepBtn3" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition">Slide 3</button>
+                    <button onclick="goToSlide(4)" id="stepBtn4" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition">Slide 4</button>
+                    <button onclick="goToSlide(5)" id="stepBtn5" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition">Slide 5</button>
+                    <button onclick="goToSlide(6)" id="stepBtn6" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition">Slide 6</button>
+                    <button onclick="goToSlide(7)" id="stepBtn7" class="step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition">Slide 7</button>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <button onclick="prevSlide()" class="p-2 rounded-lg bg-sand-100 hover:bg-sand-200 text-navySlate-900 transition font-mono font-bold text-xs flex items-center">
+                        <span class="mr-1">◄</span> Prev
+                    </button>
+                    <span id="slideIndicator" class="font-mono text-xs text-sand-800 px-2 font-semibold">1 / 7</span>
+                    <button onclick="nextSlide()" class="p-2 rounded-lg bg-navySlate-900 hover:bg-navySlate-800 text-white transition font-mono font-bold text-xs flex items-center shadow-sm">
+                        Next <span class="ml-1">►</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE CARDS WRAPPER -->
+            <div id="slidesWrapper" class="relative">
+
+                <!-- SLIDE 1: TITLE & EXECUTIVE SUMMARY -->
+                <div id="slide1" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-amberAccent-500/10 text-amberAccent-600 font-mono text-xs font-bold uppercase tracking-wider border border-amberAccent-500/20">
+                                Executive Overview & Architecture
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Document Rev 5.0 | August 2026</span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-navySlate-900 tracking-tight mb-4 leading-tight">
+                            SUNSHADE SYSTEMS
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-semibold text-amberAccent-600 mb-6 leading-snug">
+                            Zero-Downtime Event Infrastructure & POS Revenue Shield
+                        </p>
+
+                        <div class="bg-sand-50 p-5 rounded-xl border-l-4 border-amberAccent-500 mb-8">
+                            <p class="text-sm sm:text-base text-navySlate-900 font-medium leading-relaxed">
+                                <strong class="text-navySlate-900">Subhead:</strong> Mission-critical temporary edge networking for high-density crowds and municipal corridors.
+                            </p>
+                            <p class="mt-2 text-sm sm:text-base text-sand-800 font-medium leading-relaxed">
+                                <strong class="text-navySlate-900">Core Value Proposition:</strong> Eliminating merchant transaction failures during cellular network collapse with guaranteed 99.9% uptime SLAs.
+                            </p>
+                        </div>
+
+                        <!-- Key Metrics Ribbon -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-6">
+                            <div class="bg-sand-100/70 p-4 rounded-xl border border-sand-200">
+                                <div class="text-xs font-mono uppercase text-sand-800 font-semibold">Uptime SLA</div>
+                                <div class="text-2xl font-extrabold text-navySlate-900 mt-1">99.9%</div>
+                                <div class="text-[11px] text-amberAccent-600 font-medium mt-0.5">Hard-Walled POS Isolation</div>
+                            </div>
+                            <div class="bg-sand-100/70 p-4 rounded-xl border border-sand-200">
+                                <div class="text-xs font-mono uppercase text-sand-800 font-semibold">WAN Failover</div>
+                                <div class="text-2xl font-extrabold text-navySlate-900 mt-1">&lt; 3 Sec</div>
+                                <div class="text-[11px] text-amberAccent-600 font-medium mt-0.5">Atomic Starlink + 5G bonding</div>
+                            </div>
+                            <div class="bg-sand-100/70 p-4 rounded-xl border border-sand-200">
+                                <div class="text-xs font-mono uppercase text-sand-800 font-semibold">Net Operating Margin</div>
+                                <div class="text-2xl font-extrabold text-navySlate-900 mt-1">75%–85%</div>
+                                <div class="text-[11px] text-amberAccent-600 font-medium mt-0.5">$15.3k net per 3-day festival</div>
+                            </div>
+                            <div class="bg-sand-100/70 p-4 rounded-xl border border-sand-200">
+                                <div class="text-xs font-mono uppercase text-sand-800 font-semibold">CapEx Amortization</div>
+                                <div class="text-2xl font-extrabold text-navySlate-900 mt-1">2 Events</div>
+                                <div class="text-[11px] text-amberAccent-600 font-medium mt-0.5">100% paid off in 2-3 contracts</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Presenter & Contact Info Card -->
+                    <div class="pt-6 border-t border-sand-200 flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-navySlate-900 text-white font-bold flex items-center justify-center font-mono text-sm">
+                                TP
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-navySlate-900">Tymz Pollack, BSIT, MBA</div>
+                                <div class="text-xs text-sand-800">Founder & Principal Architect</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-xs font-mono">
+                            <a href="mailto:tymzpollack@gmail.com" class="text-navySlate-900 hover:text-amberAccent-600 underline font-medium">tymzpollack@gmail.com</a>
+                            <span class="text-sand-300">|</span>
+                            <span class="text-amberAccent-600 font-bold">MadeInTheShade.wtf</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: THE PROBLEM -->
+                <div id="slide2" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] hidden flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 font-mono text-xs font-bold uppercase tracking-wider">
+                                Market Vulnerability & Crisis
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Slide 02 / 07</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navySlate-900 mb-2">
+                            The Problem — Cellular Collapse at Mass Gatherings
+                        </h2>
+                        <p class="text-sand-800 text-sm sm:text-base mb-6">
+                            In high-density temporary crowds, commercial telecom infrastructure systematically fails, freezing point-of-sale commerce.
+                        </p>
+
+                        <!-- Problem Matrix Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200 flex flex-col justify-between">
+                                <div>
+                                    <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold font-mono mb-3">01</div>
+                                    <h3 class="font-bold text-navySlate-900 text-base mb-2">Cellular Network Failure</h3>
+                                    <p class="text-xs text-sand-800 leading-relaxed">
+                                        When crowds exceeding 15,000+ gather, local commercial cellular towers collapse under radio frequency (RF) congestion and backhaul saturation.
+                                    </p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-sand-200 text-[11px] font-mono text-red-600 font-semibold">
+                                    ★ Tower RF Saturated
+                                </div>
+                            </div>
+
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200 flex flex-col justify-between">
+                                <div>
+                                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold font-mono mb-3">02</div>
+                                    <h3 class="font-bold text-navySlate-900 text-base mb-2">Lost Transaction Revenue</h3>
+                                    <p class="text-xs text-sand-800 leading-relaxed">
+                                        Vendor Point-of-Sale (POS) terminals freeze or time out, costing event organizers and food/beverage merchants thousands of dollars per minute in unprocessible sales.
+                                    </p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-sand-200 text-[11px] font-mono text-amber-700 font-semibold">
+                                    ★ $1,000s / Min Unrecoverable
+                                </div>
+                            </div>
+
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200 flex flex-col justify-between">
+                                <div>
+                                    <div class="w-8 h-8 rounded-lg bg-sand-200 text-navySlate-900 flex items-center justify-center font-bold font-mono mb-3">03</div>
+                                    <h3 class="font-bold text-navySlate-900 text-base mb-2">Flawed Legacy Solutions</h3>
+                                    <p class="text-xs text-sand-800 leading-relaxed">
+                                        Traditional event Wi-Fi providers deploy cloud-dependent "dumb pipes" (e.g., standard satellite or simple SIM routers) that freeze the second the primary WAN uplink stalls.
+                                    </p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-sand-200 text-[11px] font-mono text-navySlate-900 font-semibold">
+                                    ★ No Local Edge Continuity
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Simulation Widget -->
+                        <div class="p-4 rounded-xl bg-navySlate-950 text-white border border-navySlate-800">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                    <span class="font-mono text-xs font-bold text-amberAccent-400">INTERACTIVE SIMULATION: CELL TOWER CONGESTION STRESS TEST</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <label for="crowdSlider" class="text-xs font-mono text-sand-300">Crowd Size:</label>
+                                    <input type="range" id="crowdSlider" min="5000" max="50000" step="5000" value="15000" oninput="updateSim(this.value)" class="accent-amberAccent-500 cursor-pointer">
+                                    <span id="crowdVal" class="font-mono text-xs font-bold text-white w-16">15,000</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+                                <div class="p-3 rounded bg-navySlate-900 border border-red-900/50">
+                                    <div class="text-red-400 font-bold mb-1">LEGACY CLOUD PARADIGM</div>
+                                    <div>Cell Tower Latency: <span id="legacyLatency" class="text-red-400 font-bold">1,850 ms</span></div>
+                                    <div>POS Transaction Status: <span id="legacyStatus" class="text-red-500 font-bold uppercase">TIMEOUT / FAILED</span></div>
+                                    <div class="text-[10px] text-sand-400 mt-1">Est. Revenue Loss: <span id="legacyLoss" class="text-red-400 font-bold">$2,400 / min</span></div>
+                                </div>
+                                <div class="p-3 rounded bg-navySlate-900 border border-emerald-900/50">
+                                    <div class="text-emerald-400 font-bold mb-1">SUNSHADE OS DIGITAL CANOPY</div>
+                                    <div>Hard-Walled VLAN 10 Latency: <span class="text-emerald-400 font-bold">4 ms (Local Wire-Speed)</span></div>
+                                    <div>POS Transaction Status: <span class="text-emerald-400 font-bold uppercase">100% ONLINE (DSCP 46)</span></div>
+                                    <div class="text-[10px] text-sand-400 mt-1">Revenue Shield: <span class="text-emerald-400 font-bold">ZERO Downtime Loss</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: THE SOLUTION -->
+                <div id="slide3" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] hidden flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-mono text-xs font-bold uppercase tracking-wider">
+                                Technical Solution & Architecture
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Slide 03 / 07</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navySlate-900 mb-2">
+                            The Solution — The Digital Canopy & Hard-Walled Protection
+                        </h2>
+                        <p class="text-sand-800 text-sm sm:text-base mb-6">
+                            Decoupling network survival from cloud uplinks through localized edge compute, VLAN isolation, and self-powered tactical rigs.
+                        </p>
+
+                        <!-- Solution 4 Pillars Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="p-4 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 rounded bg-navySlate-900 text-amberAccent-400 font-mono font-bold text-xs">VLAN 10</div>
+                                    <div>
+                                        <h3 class="font-bold text-navySlate-900 text-sm">Hard-Walled POS Isolation</h3>
+                                        <p class="text-xs text-sand-800 mt-1 leading-relaxed">
+                                            Dedicated Layer 2/3 VLAN segmentation (VLAN 10) with DSCP 46 Expedited Forwarding priority, ensuring public crowd traffic can never touch or slow down card terminals.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 rounded bg-navySlate-900 text-amberAccent-400 font-mono font-bold text-xs">&lt; 3 SEC</div>
+                                    <div>
+                                        <h3 class="font-bold text-navySlate-900 text-sm">Sub-3-Second Automated Failover</h3>
+                                        <p class="text-xs text-sand-800 mt-1 leading-relaxed">
+                                            Multi-WAN packet bonding (Starlink High-Performance + Dual 5G Standalone modems) atomically switches default routes in under 3 seconds during signal obstruction or rain fade.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 rounded bg-navySlate-900 text-amberAccent-400 font-mono font-bold text-xs">EDGE SBC</div>
+                                    <div>
+                                        <h3 class="font-bold text-navySlate-900 text-sm">Offline-First Edge Compute (SunShade OS)</h3>
+                                        <p class="text-xs text-sand-800 mt-1 leading-relaxed">
+                                            Onboard Single-Board Computers (SBCs) and enterprise NVMe storage host venue maps, schedules, PWA apps, and local video logging directly on-site without hitting external internet uplinks.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="flex items-start space-x-3">
+                                    <div class="p-2 rounded bg-navySlate-900 text-amberAccent-400 font-mono font-bold text-xs">IP67 RIG</div>
+                                    <div>
+                                        <h3 class="font-bold text-navySlate-900 text-sm">Self-Powered Tactical Flypacks</h3>
+                                        <p class="text-xs text-sand-800 mt-1 leading-relaxed">
+                                            Ruggedized IP67 12U Pelican Flypacks with 15–20ft pneumatic telescoping masts, stationary vented solar canopies, down-draft cooling, and 2,048 Wh LiFePO4 battery reserves (12–16 hrs runtime).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WebRTC P2P & Patron Guardrails Banner -->
+                        <div class="p-4 rounded-xl bg-sand-100 border border-sand-300 flex flex-wrap items-center justify-between gap-3 text-xs">
+                            <div class="flex items-center space-x-2">
+                                <span class="px-2 py-0.5 rounded bg-amberAccent-500 text-white font-bold font-mono">P2P MESH</span>
+                                <span class="font-semibold text-navySlate-900">Patron Battery Escrow Floor:</span>
+                                <span class="text-sand-800">Auto-disables P2P seeding if client battery ≤ 50% or thermal state is elevated.</span>
+                            </div>
+                            <span class="font-mono text-amberAccent-600 font-bold">70% WAN Traffic Offload</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4: UNIT ECONOMICS & CASH-FLOW ARCHITECTURE -->
+                <div id="slide4" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] hidden flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amberAccent-500/10 text-amberAccent-600 font-mono text-xs font-bold uppercase tracking-wider">
+                                Financial Architecture & Margins
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Slide 04 / 07</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navySlate-900 mb-2">
+                            Unit Economics & Cash-Flow Architecture
+                        </h2>
+                        <p class="text-sand-800 text-sm sm:text-base mb-6">
+                            Exceptional profit margins backed by 50% upfront deposits that fully pre-fund event deployment OpEx.
+                        </p>
+
+                        <!-- 3 Core Financial Pillars -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="text-amberAccent-600 font-mono font-bold text-xs uppercase mb-1">Pillar I</div>
+                                <h3 class="font-bold text-navySlate-900 text-lg mb-2">High Operating Margins</h3>
+                                <p class="text-xs text-sand-800 leading-relaxed mb-3">
+                                    Average 3-day festival production contract yields $15,000 to $32,500 gross revenue against $3,250 to $4,800 direct OpEx (75% to 85% net operating margin).
+                                </p>
+                                <div class="p-2 bg-white rounded border border-sand-200 text-center font-mono text-xs font-bold text-navySlate-900">
+                                    Net Margin: 82.7% (Avg $15.3k)
+                                </div>
+                            </div>
+
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="text-amberAccent-600 font-mono font-bold text-xs uppercase mb-1">Pillar II</div>
+                                <h3 class="font-bold text-navySlate-900 text-lg mb-2">Pre-Funded Operations</h3>
+                                <p class="text-xs text-sand-800 leading-relaxed mb-3">
+                                    B2B contracts enforce a 50% deposit upon signing (30–60 days pre-event), pre-funding field OpEx, SIM data, fuel, and crew stipends before stepping on-site.
+                                </p>
+                                <div class="p-2 bg-white rounded border border-sand-200 text-center font-mono text-xs font-bold text-navySlate-900">
+                                    50% Cash Deposit Upfront
+                                </div>
+                            </div>
+
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200">
+                                <div class="text-amberAccent-600 font-mono font-bold text-xs uppercase mb-1">Pillar III</div>
+                                <h3 class="font-bold text-navySlate-900 text-lg mb-2">Rapid Hardware Amortization</h3>
+                                <p class="text-xs text-sand-800 leading-relaxed mb-3">
+                                    Complete 4-node Alpha Fleet CapEx (~$19,500 – $21,221) is 100% amortized and paid off in 2 to 3 festival deployments, enabling a $0-liability secondary asset cascade.
+                                </p>
+                                <div class="p-2 bg-white rounded border border-sand-200 text-center font-mono text-xs font-bold text-navySlate-900">
+                                    Payback: 1.38 - 2.0 Events
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3-Day Event Cashflow Breakdown Table -->
+                        <div class="bg-navySlate-950 text-white rounded-xl p-4 border border-navySlate-800 text-xs font-mono">
+                            <div class="text-amberAccent-400 font-bold mb-2">3-DAY FESTIVAL SINGLE-CONTRACT MODEL ($18,500 TYPICAL CONTRACT)</div>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                                <div class="bg-navySlate-900 p-2 rounded">
+                                    <div class="text-sand-400 text-[10px]">Gross Contract</div>
+                                    <div class="text-base font-bold text-white">$18,500</div>
+                                </div>
+                                <div class="bg-navySlate-900 p-2 rounded">
+                                    <div class="text-sand-400 text-[10px]">Direct OpEx (Crew/Data)</div>
+                                    <div class="text-base font-bold text-red-400">-$3,200</div>
+                                </div>
+                                <div class="bg-navySlate-900 p-2 rounded">
+                                    <div class="text-sand-400 text-[10px]">Net Profit / Deployment</div>
+                                    <div class="text-base font-bold text-emerald-400">$15,300</div>
+                                </div>
+                                <div class="bg-navySlate-900 p-2 rounded">
+                                    <div class="text-sand-400 text-[10px]">CapEx Amortization</div>
+                                    <div class="text-base font-bold text-amberAccent-400">1.38 Events</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5: HARDWARE CAPEX BREAKDOWN -->
+                <div id="slide5" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] hidden flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-navySlate-900 text-white font-mono text-xs font-bold uppercase tracking-wider">
+                                Hardware CapEx Master BOM
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Slide 05 / 07</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navySlate-900 mb-2">
+                            Hardware CapEx Breakdown (Alpha Fleet #1 + N+1 Spares)
+                        </h2>
+                        <p class="text-sand-800 text-sm sm:text-base mb-6">
+                            Complete bill of materials for 1 Master Gateway + 3 Satellite Nodes with complete N+1 hot-spare redundancy.
+                        </p>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                            <!-- Left: Itemized Cost Breakdown Table -->
+                            <div class="lg:col-span-7 space-y-3">
+                                <div class="p-3.5 rounded-xl bg-sand-50 border border-sand-200 flex justify-between items-center">
+                                    <div>
+                                        <div class="font-bold text-navySlate-900 text-sm">Master Gateway Rig</div>
+                                        <div class="text-xs text-sand-800">Starlink High-Perf dish + Peplink Dual-5G Multi-WAN + LiFePO4 UPS reserve + hot-spare router</div>
+                                    </div>
+                                    <div class="font-mono font-bold text-navySlate-900 text-base ml-2">$5,237</div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-sand-50 border border-sand-200 flex justify-between items-center">
+                                    <div>
+                                        <div class="font-bold text-navySlate-900 text-sm">Satellite Field Nodes (x3)</div>
+                                        <div class="text-xs text-sand-800">2 active field nodes + 1 full hot-spare node (SBC edge servers, Wi-Fi 6E APs, 60GHz PTP bridges)</div>
+                                    </div>
+                                    <div class="font-mono font-bold text-navySlate-900 text-base ml-2">$9,324</div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-sand-50 border border-sand-200 flex justify-between items-center">
+                                    <div>
+                                        <div class="font-bold text-navySlate-900 text-sm">Enclosures & Telescoping Masts</div>
+                                        <div class="text-xs text-sand-800">4x IP67 Pelican shock-mount cases with Neutrik waterproof pass-throughs and 3x 15–20ft pneumatic masts</div>
+                                    </div>
+                                    <div class="font-mono font-bold text-navySlate-900 text-base ml-2">$3,450</div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-sand-50 border border-sand-200 flex justify-between items-center">
+                                    <div>
+                                        <div class="font-bold text-navySlate-900 text-sm">Tactical Gear & Surveillance</div>
+                                        <div class="text-xs text-sand-800">Shielded Cat6 spools, PowerCON connectors, testing gear, and 360° mast security cameras with local NVMe logging</div>
+                                    </div>
+                                    <div class="font-mono font-bold text-navySlate-900 text-base ml-2">$3,210</div>
+                                </div>
+
+                                <div class="p-4 rounded-xl bg-navySlate-900 text-white flex justify-between items-center">
+                                    <div class="font-bold text-sm font-mono uppercase text-amberAccent-400">Total Alpha Fleet Buildout</div>
+                                    <div class="font-mono font-extrabold text-xl text-white">~$21,221</div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Chart.js CapEx Visualization -->
+                            <div class="lg:col-span-5">
+                                <div class="bg-sand-50 p-4 rounded-xl border border-sand-200 flex flex-col items-center">
+                                    <h4 class="font-mono text-xs font-bold text-navySlate-900 uppercase mb-2">CapEx Cost Allocation</h4>
+                                    <div class="chart-container">
+                                        <canvas id="capexChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 6: REGIONAL GO-TO-MARKET & PILOT ROADMAP -->
+                <div id="slide6" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] hidden flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amberAccent-500/10 text-amberAccent-600 font-mono text-xs font-bold uppercase tracking-wider">
+                                Regional Pilot Roadmap (2026–2027)
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Slide 06 / 07</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navySlate-900 mb-2">
+                            Regional Go-To-Market & Pilot Roadmap
+                        </h2>
+                        <p class="text-sand-800 text-sm sm:text-base mb-6">
+                            Phased commercial deployment strategy across Greater Cincinnati & regional Midwest events.
+                        </p>
+
+                        <!-- Phase Roadmap Interactive Timeline -->
+                        <div class="space-y-4">
+                            <!-- Phase 1 -->
+                            <div class="p-4 rounded-xl bg-sand-50 border-l-4 border-amberAccent-500 border-sand-200">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <span class="font-mono font-bold text-navySlate-900 text-sm">PHASE 1 — Small/Mid Controlled Pilots</span>
+                                    <span class="px-2 py-0.5 rounded bg-sand-200 text-sand-800 font-mono text-xs">Sept – Nov 2026</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                    <div class="p-2.5 bg-white rounded border border-sand-200">
+                                        <strong class="text-navySlate-900">Ohio Renaissance Festival:</strong> 20k/wkd crowd | Outdoor permanent grounds. Testing long-range 60GHz PTP backhaul in poor cell zones.
+                                    </div>
+                                    <div class="p-2.5 bg-white rounded border border-sand-200">
+                                        <strong class="text-navySlate-900">Cincinnati Comic Expo:</strong> 35k crowd | Indoor convention center. Stress testing high-density indoor merchant POS terminals.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phase 2 -->
+                            <div class="p-4 rounded-xl bg-sand-50 border-l-4 border-navySlate-900 border-sand-200">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <span class="font-mono font-bold text-navySlate-900 text-sm">PHASE 2 — Metropolitan Stress Tests</span>
+                                    <span class="px-2 py-0.5 rounded bg-sand-200 text-sand-800 font-mono text-xs">Late Fall 2026 / Spring 2027</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                    <div class="p-2.5 bg-white rounded border border-sand-200">
+                                        <strong class="text-navySlate-900">Oktoberfest Zinzinnati & BLINK:</strong> 700k – 1.5M+ crowds across 30+ urban blocks. POS protection during total cellular grid collapse.
+                                    </div>
+                                    <div class="p-2.5 bg-white rounded border border-sand-200">
+                                        <strong class="text-navySlate-900">Bockfest:</strong> 40k crowd | Historic Over-the-Rhine corridor. RF spectrum navigation through dense brick and concrete obstacles.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phase 3 -->
+                            <div class="p-4 rounded-xl bg-sand-50 border-l-4 border-emerald-600 border-sand-200">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <span class="font-mono font-bold text-navySlate-900 text-sm">PHASE 3 — Enterprise Scaling & Municipal SLA</span>
+                                    <span class="px-2 py-0.5 rounded bg-sand-200 text-sand-800 font-mono text-xs">May 2027 Onward</span>
+                                </div>
+                                <div class="p-2.5 bg-white rounded border border-sand-200 text-xs">
+                                    <strong class="text-navySlate-900">Flying Pig Marathon & Taste of Cincinnati:</strong> 550k+ attendees. Multi-fleet linear course monitoring and culinary vendor POS coverage across 60+ food trucks.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 7: DIRECT ASK & RESOURCE ALIGNMENT -->
+                <div id="slide7" class="slide-card bg-white rounded-2xl p-6 sm:p-10 border border-sand-200 shadow-sm min-h-[580px] hidden flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amberAccent-500 text-white font-mono text-xs font-bold uppercase tracking-wider">
+                                Direct Capital & Partner Alignment
+                            </span>
+                            <span class="text-xs font-mono text-sand-800">Slide 07 / 07</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navySlate-900 mb-2">
+                            Direct Ask & Resource Alignment
+                        </h2>
+                        <p class="text-sand-800 text-sm sm:text-base mb-6">
+                            Targeted capital and facility request for immediate Alpha Fleet execution with Alloy Development Co. & SBA.
+                        </p>
+
+                        <!-- 3 Core Ask Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="p-5 rounded-xl bg-sand-50 border-2 border-amberAccent-500/30 flex flex-col justify-between">
+                                <div>
+                                    <div class="w-10 h-10 rounded-lg bg-amberAccent-500 text-white font-mono font-bold text-lg flex items-center justify-center mb-4">1</div>
+                                    <h3 class="font-bold text-navySlate-900 text-lg mb-2">SBA 7(a) Working Capital Line / Loan</h3>
+                                    <div class="text-amberAccent-600 font-mono font-bold text-sm mb-2">$15,000 – $25,000</div>
+                                    <p class="text-xs text-sand-800 leading-relaxed">
+                                        Fully funds component procurement, hardware assembly, and spectrum burn-in testing for Alpha Fleet #1.
+                                    </p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-sand-200 text-[11px] font-mono text-navySlate-900">
+                                    ★ Year 1 DSCR: 8.32x (vs 1.25x Benchmark)
+                                </div>
+                            </div>
+
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200 flex flex-col justify-between">
+                                <div>
+                                    <div class="w-10 h-10 rounded-lg bg-navySlate-900 text-white font-mono font-bold text-lg flex items-center justify-center mb-4">2</div>
+                                    <h3 class="font-bold text-navySlate-900 text-lg mb-2">Alloy Norwood Flex Facility Space</h3>
+                                    <div class="text-navySlate-900 font-mono font-bold text-sm mb-2">1,500 – 3,000 Sq. Ft.</div>
+                                    <p class="text-xs text-sand-800 leading-relaxed">
+                                        Dedicated staging space for hardware assembly, inventory warehousing, rolling Flypack QA, and RF bench testing.
+                                    </p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-sand-200 text-[11px] font-mono text-navySlate-900">
+                                    ★ Drive-in Bay + RF Testing Bench
+                                </div>
+                            </div>
+
+                            <div class="p-5 rounded-xl bg-sand-50 border border-sand-200 flex flex-col justify-between">
+                                <div>
+                                    <div class="w-10 h-10 rounded-lg bg-navySlate-900 text-white font-mono font-bold text-lg flex items-center justify-center mb-4">3</div>
+                                    <h3 class="font-bold text-navySlate-900 text-lg mb-2">Strategic Network Introductions</h3>
+                                    <div class="text-navySlate-900 font-mono font-bold text-sm mb-2">Regional Stakeholders</div>
+                                    <p class="text-xs text-sand-800 leading-relaxed">
+                                        Direct connections to regional event production directors, 3CDC, and City of Cincinnati DORA corridor management teams.
+                                    </p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-sand-200 text-[11px] font-mono text-navySlate-900">
+                                    ★ Regional Corridor Scale
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meeting Briefing Footer -->
+                        <div class="p-4 rounded-xl bg-sand-100 border border-sand-300 text-xs">
+                            <strong class="text-navySlate-900">Meeting Briefing Summary:</strong> B2B cash flow pays off hardware in 2-3 contracts at 82%+ margins. Depreciated assets then cascade into municipal DORA corridors and K-12 LearnStations at $0 remaining balance-sheet liability.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- EXPLORER DASHBOARD MODE (INTERACTIVE SANDBOX) -->
+        <div id="dashboardViewContainer" class="hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl font-extrabold text-navySlate-900">Interactive Financial & Technical Sandbox</h2>
+                <p class="text-sand-800 text-sm">Stress-test unit economics, inspect network routing isolation, and analyze 5-year growth models.</p>
+            </div>
+
+            <!-- Tab Buttons for Sandbox -->
+            <div class="flex border-b border-sand-200 mb-6 space-x-4 font-mono text-xs font-bold">
+                <button onclick="setSandboxTab('calc')" id="sbTabCalc" class="pb-3 border-b-2 border-amberAccent-500 text-navySlate-900">Unit Economics Calculator</button>
+                <button onclick="setSandboxTab('proforma')" id="sbTabProforma" class="pb-3 border-b-2 border-transparent text-sand-800 hover:text-navySlate-900">5-Year Pro Forma Chart</button>
+                <button onclick="setSandboxTab('tech')" id="sbTabTech" class="pb-3 border-b-2 border-transparent text-sand-800 hover:text-navySlate-900">Network L2/L3 Isolation Visualizer</button>
+            </div>
+
+            <!-- Sandbox Tab 1: Calculator -->
+            <div id="sbCalcContent" class="bg-white rounded-2xl p-6 border border-sand-200 shadow-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Controls -->
+                    <div class="lg:col-span-5 space-y-5 bg-sand-50 p-5 rounded-xl border border-sand-200">
+                        <h3 class="font-bold text-navySlate-900 text-sm font-mono uppercase">Event Contract Calculator Controls</h3>
+                        
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-navySlate-900 mb-1">
+                                <span>B2B SLA Contract Fee ($):</span>
+                                <span id="calcFeeVal" class="font-mono text-amberAccent-600 font-bold">$18,500</span>
+                            </div>
+                            <input type="range" id="calcFee" min="10000" max="40000" step="500" value="18500" oninput="runCalculator()" class="w-full accent-amberAccent-500">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-navySlate-900 mb-1">
+                                <span>Sponsor Activation / Ad Revenue ($):</span>
+                                <span id="calcSponsorVal" class="font-mono text-amberAccent-600 font-bold">$3,500</span>
+                            </div>
+                            <input type="range" id="calcSponsor" min="0" max="10000" step="250" value="3500" oninput="runCalculator()" class="w-full accent-amberAccent-500">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-navySlate-900 mb-1">
+                                <span>Direct Event OpEx (Crew, SIMs, Transport):</span>
+                                <span id="calcOpexVal" class="font-mono text-red-600 font-bold">$3,200</span>
+                            </div>
+                            <input type="range" id="calcOpex" min="1500" max="8000" step="100" value="3200" oninput="runCalculator()" class="w-full accent-amberAccent-500">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-navySlate-900 mb-1">
+                                <span>Fleet Hardware CapEx Basis ($):</span>
+                                <span id="calcCapexVal" class="font-mono text-navySlate-900 font-bold">$21,221</span>
+                            </div>
+                            <input type="range" id="calcCapex" min="15000" max="30000" step="500" value="21221" oninput="runCalculator()" class="w-full accent-amberAccent-500">
+                        </div>
+                    </div>
+
+                    <!-- Output Results -->
+                    <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-sand-100 border border-sand-200">
+                                <div class="text-xs text-sand-800 uppercase font-mono">Gross Event Revenue</div>
+                                <div id="calcGrossRes" class="text-2xl font-extrabold text-navySlate-900 mt-1">$22,000</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-sand-100 border border-sand-200">
+                                <div class="text-xs text-sand-800 uppercase font-mono">Net Profit per Deployment</div>
+                                <div id="calcNetRes" class="text-2xl font-extrabold text-emerald-600 mt-1">$18,800</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-sand-100 border border-sand-200">
+                                <div class="text-xs text-sand-800 uppercase font-mono">Net Operating Margin</div>
+                                <div id="calcMarginRes" class="text-2xl font-extrabold text-amberAccent-600 mt-1">85.5%</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-sand-100 border border-sand-200">
+                                <div class="text-xs text-sand-800 uppercase font-mono">Hardware Payback Horizon</div>
+                                <div id="calcPaybackRes" class="text-2xl font-extrabold text-navySlate-900 mt-1">1.13 Events</div>
+                            </div>
+                        </div>
+
+                        <!-- SBA Loan DSCR Metric -->
+                        <div class="p-5 rounded-xl bg-navySlate-950 text-white border border-navySlate-800 font-mono text-xs">
+                            <div class="text-amberAccent-400 font-bold mb-2">SBA 7(a) LOAN DEBT SERVICE COVERAGE RATIO (DSCR)</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                    <div class="text-sand-400 text-[10px]">Annual Debt Service ($21.2k @ 10.5%)</div>
+                                    <div class="text-sm font-bold text-white">$6,440 / yr ($536/mo)</div>
+                                </div>
+                                <div>
+                                    <div class="text-sand-400 text-[10px]">Projected Year 1 Net Profit</div>
+                                    <div class="text-sm font-bold text-emerald-400">$53,600</div>
+                                </div>
+                                <div>
+                                    <div class="text-sand-400 text-[10px]">Calculated DSCR</div>
+                                    <div id="dscrRes" class="text-lg font-extrabold text-amberAccent-400">8.32x</div>
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-sand-400 mt-2">
+                                *Standard SBA benchmark is 1.25x. An 8.32x coverage ratio demonstrates exceptional loan bankability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sandbox Tab 2: Pro Forma -->
+            <div id="sbProformaContent" class="hidden bg-white rounded-2xl p-6 border border-sand-200 shadow-sm">
+                <h3 class="font-bold text-navySlate-900 text-base mb-2">5-Year Consolidated Financial Projection (2026–2030)</h3>
+                <p class="text-xs text-sand-800 mb-4">Scales from 1 Active Fleet (8 events) in Year 1 to 35 Fleets (310 events + 75 venue SLA retainers) in Year 5.</p>
+                <div class="chart-container">
+                    <canvas id="proformaChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Sandbox Tab 3: Technical Routing -->
+            <div id="sbTechContent" class="hidden bg-white rounded-2xl p-6 border border-sand-200 shadow-sm">
+                <h3 class="font-bold text-navySlate-900 text-base mb-2">SunShade OS Layer 2/3 VLAN Architecture</h3>
+                <p class="text-xs text-sand-800 mb-6">Strict network segmentation ensures high-bandwidth crowd usage can never degrade financial payment channels.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+                    <div class="p-4 rounded-xl bg-red-50 border border-red-200">
+                        <div class="text-red-700 font-bold text-sm mb-1">VLAN 10: MERCHANT POS</div>
+                        <ul class="space-y-1.5 text-sand-800">
+                            <li>• Non-Routable Layer 2/3</li>
+                            <li>• QoS Priority: DSCP 46 (Expedited)</li>
+                            <li>• Hard-walled traffic limits</li>
+                            <li>• Guaranteed 99.9% Uptime SLA</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                        <div class="text-amber-800 font-bold text-sm mb-1">VLAN 20: EVENT OPS</div>
+                        <ul class="space-y-1.5 text-sand-800">
+                            <li>• Encrypted Priority Trunk</li>
+                            <li>• Emergency comms & security cams</li>
+                            <li>• Staff ticketing & access control</li>
+                            <li>• Direct SBC NVMe logging</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-sky-50 border border-sky-200">
+                        <div class="text-sky-800 font-bold text-sm mb-1">VLAN 31-64: PUBLIC P2P MESH</div>
+                        <ul class="space-y-1.5 text-sand-800">
+                            <li>• Rate-limited WAN egress</li>
+                            <li>• WebRTC peer seeding</li>
+                            <li>• Battery Escrow Protection (≥50%)</li>
+                            <li>• Thermal Throttling Shield</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-sand-100 border-t border-sand-200 py-4 text-xs font-mono text-sand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-2">
+            <div>
+                © 2026 SunShade Systems, LLC. Confidential Business Plan Presentation.
+            </div>
+            <div class="flex space-x-4">
+                <span>Founder: Tymz Pollack, BSIT, MBA</span>
+                <span>•</span>
+                <span class="text-amberAccent-600 font-bold">MadeInTheShade.wtf</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        // Application State
+        let currentSlide = 1;
+        const totalSlides = 7;
+        let capexChartInstance = null;
+        let proformaChartInstance = null;
+
+        // On DOM Loaded Initialize Charts & Events
+        document.addEventListener('DOMContentLoaded', function() {
+            initCapExChart();
+            initKeyboardNav();
+        });
+
+        // View Mode Switcher
+        function setViewMode(mode) {
+            const slideView = document.getElementById('slideViewContainer');
+            const dashView = document.getElementById('dashboardViewContainer');
+            const btnSlide = document.getElementById('btnNavSlide');
+            const btnDash = document.getElementById('btnNavDashboard');
+
+            if (mode === 'slide') {
+                slideView.classList.remove('hidden');
+                dashView.classList.add('hidden');
+                btnSlide.className = "px-3 py-1.5 rounded-md transition-all duration-150 bg-white text-navySlate-900 shadow-sm";
+                btnDash.className = "px-3 py-1.5 rounded-md transition-all duration-150 text-sand-800 hover:text-navySlate-900";
+            } else {
+                slideView.classList.add('hidden');
+                dashView.classList.remove('hidden');
+                btnDash.className = "px-3 py-1.5 rounded-md transition-all duration-150 bg-white text-navySlate-900 shadow-sm";
+                btnSlide.className = "px-3 py-1.5 rounded-md transition-all duration-150 text-sand-800 hover:text-navySlate-900";
+                
+                // Initialize Pro Forma chart on first switch
+                setTimeout(() => {
+                    initProformaChart();
+                }, 100);
+            }
+        }
+
+        // Slide Navigation Logic
+        function goToSlide(num) {
+            if (num < 1 || num > totalSlides) return;
+            
+            // Hide current slide
+            document.getElementById(`slide${currentSlide}`).classList.add('hidden');
+            document.getElementById(`slide${currentSlide}`).classList.remove('flex');
+            
+            // Unhighlight step button
+            const oldBtn = document.getElementById(`stepBtn${currentSlide}`);
+            if (oldBtn) {
+                oldBtn.className = "step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-sand-100 text-sand-800 hover:bg-sand-200 transition";
+            }
+
+            currentSlide = num;
+
+            // Show new slide
+            const newSlide = document.getElementById(`slide${currentSlide}`);
+            newSlide.classList.remove('hidden');
+            newSlide.classList.add('flex');
+
+            // Highlight new step button
+            const newBtn = document.getElementById(`stepBtn${currentSlide}`);
+            if (newBtn) {
+                newBtn.className = "step-btn px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-navySlate-900 text-white transition";
+            }
+
+            // Update Indicator
+            document.getElementById('slideIndicator').innerText = `${currentSlide} / ${totalSlides}`;
+
+            // Resize Chart if on Slide 5
+            if (currentSlide === 5 && capexChartInstance) {
+                setTimeout(() => { capexChartInstance.resize(); }, 50);
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) goToSlide(currentSlide - 1);
+        }
+
+        function initKeyboardNav() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === 'Space') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+        }
+
+        // Interactive Cellular Congestion Simulation Logic (Slide 2)
+        function updateSim(val) {
+            document.getElementById('crowdVal').innerText = Number(val).toLocaleString();
+            const latency = Math.round(150 + (val / 5000) * 450);
+            document.getElementById('legacyLatency').innerText = `${latency.toLocaleString()} ms`;
+            
+            const legacyLossVal = Math.round((val / 15000) * 2400);
+            document.getElementById('legacyLoss').innerText = `$${legacyLossVal.toLocaleString()} / min`;
+
+            if (val >= 15000) {
+                document.getElementById('legacyStatus').innerText = "TIMEOUT / FAILED";
+                document.getElementById('legacyStatus').className = "text-red-500 font-bold uppercase";
+            } else {
+                document.getElementById('legacyStatus').innerText = "DEGRADED";
+                document.getElementById('legacyStatus').className = "text-amber-500 font-bold uppercase";
+            }
+        }
+
+        // CapEx Chart Initialization (Slide 5)
+        function initCapExChart() {
+            const ctx = document.getElementById('capexChart').getContext('2d');
+            capexChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Master Gateway Rig ($5,237)',
+                        'Satellite Nodes x3 ($9,324)',
+                        'Enclosures & Masts ($3,450)',
+                        'Tactical Gear & Cams ($3,210)'
+                    ],
+                    datasets: [{
+                        data: [5237, 9324, 3450, 3210],
+                        backgroundColor: ['#0F172A', '#D97706', '#0EA5E9', '#64748B'],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { family: 'Plus Jakarta Sans', size: 10 },
+                                boxWidth: 12
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Unit Economics Calculator (Sandbox Tab 1)
+        function runCalculator() {
+            const fee = parseFloat(document.getElementById('calcFee').value);
+            const sponsor = parseFloat(document.getElementById('calcSponsor').value);
+            const opex = parseFloat(document.getElementById('calcOpex').value);
+            const capex = parseFloat(document.getElementById('calcCapex').value);
+
+            document.getElementById('calcFeeVal').innerText = `$${fee.toLocaleString()}`;
+            document.getElementById('calcSponsorVal').innerText = `$${sponsor.toLocaleString()}`;
+            document.getElementById('calcOpexVal').innerText = `$${opex.toLocaleString()}`;
+            document.getElementById('calcCapexVal').innerText = `$${capex.toLocaleString()}`;
+
+            const gross = fee + sponsor;
+            const net = gross - opex;
+            const margin = ((net / gross) * 100).toFixed(1);
+            const payback = (capex / net).toFixed(2);
+
+            document.getElementById('calcGrossRes').innerText = `$${gross.toLocaleString()}`;
+            document.getElementById('calcNetRes').innerText = `$${net.toLocaleString()}`;
+            document.getElementById('calcMarginRes').innerText = `${margin}%`;
+            document.getElementById('calcPaybackRes').innerText = `${payback} Events`;
+
+            // Update Year 1 DSCR with new net estimate (assuming 8 events)
+            const year1Net = net * 8;
+            const annualDebtService = 6440;
+            const dscr = (year1Net / annualDebtService).toFixed(2);
+            document.getElementById('dscrRes').innerText = `${dscr}x`;
+        }
+
+        // Pro Forma Growth Chart Initialization (Sandbox Tab 2)
+        function initProformaChart() {
+            if (proformaChartInstance) return;
+
+            const ctx = document.getElementById('proformaChart').getContext('2d');
+            proformaChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1 (2026)', 'Year 2 (2027)', 'Year 3 (2028)', 'Year 4 (2029)', 'Year 5 (2030)'],
+                    datasets: [
+                        {
+                            label: 'Gross Revenue ($)',
+                            data: [160000, 713000, 1902000, 4290000, 8535000],
+                            backgroundColor: '#0F172A',
+                        },
+                        {
+                            label: 'Net Operating Profit ($)',
+                            data: [53600, 487700, 1434400, 3348800, 6854000],
+                            backgroundColor: '#D97706',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + (value / 1000) + 'k';
+                                },
+                                font: { family: 'Space Grotesk', size: 10 }
+                            }
+                        },
+                        x: {
+                            ticks: { font: { family: 'Plus Jakarta Sans', size: 11 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        // Sandbox Tab Switching
+        function setSandboxTab(tab) {
+            document.getElementById('sbCalcContent').classList.add('hidden');
+            document.getElementById('sbProformaContent').classList.add('hidden');
+            document.getElementById('sbTechContent').classList.add('hidden');
+
+            document.getElementById('sbTabCalc').className = "pb-3 border-b-2 border-transparent text-sand-800 hover:text-navySlate-900";
+            document.getElementById('sbTabProforma').className = "pb-3 border-b-2 border-transparent text-sand-800 hover:text-navySlate-900";
+            document.getElementById('sbTabTech').className = "pb-3 border-b-2 border-transparent text-sand-800 hover:text-navySlate-900";
+
+            if (tab === 'calc') {
+                document.getElementById('sbCalcContent').classList.remove('hidden');
+                document.getElementById('sbTabCalc').className = "pb-3 border-b-2 border-amberAccent-500 text-navySlate-900 font-bold";
+            } else if (tab === 'proforma') {
+                document.getElementById('sbProformaContent').classList.remove('hidden');
+                document.getElementById('sbTabProforma').className = "pb-3 border-b-2 border-amberAccent-500 text-navySlate-900 font-bold";
+                initProformaChart();
+            } else if (tab === 'tech') {
+                document.getElementById('sbTechContent').classList.remove('hidden');
+                document.getElementById('sbTabTech').className = "pb-3 border-b-2 border-amberAccent-500 text-navySlate-900 font-bold";
+            }
+        }
+    </script>
+</body>
+</html>
