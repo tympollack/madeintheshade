@@ -105,13 +105,14 @@
                 <a href="#hardware" class="text-slate-300 hover:text-sunshine-cyan transition">Flypack Specs</a>
             </nav>
 
-            <div class="flex items-center space-x-3">
-                <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="hidden xl:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-sunshine-navyCard border border-sunshine-navyBorder hover:border-sunshine-orange/40 transition">
-                    <img src="/assets/peplink_logo.svg" alt="Peplink" class="h-3.5 w-auto">
-                    <span class="text-[10px] font-mono text-slate-300 uppercase tracking-wider font-semibold">Silver Partner</span>
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-1.5 sm:space-x-2 px-2 sm:px-3 py-1.5 rounded-lg bg-sunshine-navyCard border border-sunshine-navyBorder hover:border-sunshine-orange/40 transition">
+                    <img src="/assets/peplink_logo.svg" alt="Peplink" class="h-3 sm:h-3.5 w-auto">
+                    <span class="text-[9px] sm:text-[10px] font-mono text-slate-300 uppercase tracking-wider font-semibold whitespace-nowrap">Silver Partner</span>
                 </a>
-                <a href="https://madeintheshade.wtf" target="_blank" class="px-4 py-2 text-xs font-semibold rounded-lg bg-sunshine-orange hover:bg-sunshine-orangeLight text-white transition shadow-md flex items-center space-x-1.5">
-                    <span>MadeInTheShade.wtf</span>
+                <a href="https://madeintheshade.wtf" target="_blank" class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-semibold rounded-lg bg-sunshine-orange hover:bg-sunshine-orangeLight text-white transition shadow-md flex items-center space-x-1.5 whitespace-nowrap">
+                    <span class="hidden sm:inline">MadeInTheShade.wtf</span>
+                    <span class="sm:hidden">Home</span>
                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -148,7 +149,7 @@
                             <div class="text-xs text-slate-400">SLA Guarantee</div>
                             <div class="text-xl font-bold text-emerald-400 font-mono mt-0.5">99.999%</div>
                             <div class="text-[10px] text-emerald-400 mt-1 flex items-center">
-                                POS Uptime (&lt;3s Failover)
+                                POS Uptime (SpeedFusion &lt;3s Failover)
                             </div>
                         </div>
                         <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
@@ -438,9 +439,9 @@
                                 <i data-lucide="zap" class="w-5 h-5"></i>
                             </div>
                             <div class="space-y-1">
-                                <div class="text-xs font-bold text-white">Rig CapEx Payback Speed</div>
-                                <div id="calcPayback" class="text-xl font-extrabold text-emerald-400 font-mono">0.4 Events</div>
-                                <div class="text-[10px] text-slate-400">Number of events needed to completely pay off a $19,500 Flypack hardware rig.</div>
+                                <div class="text-xs font-bold text-white">Fleet CapEx Payback Speed</div>
+                                <div id="calcPayback" class="text-xl font-extrabold text-emerald-400 font-mono">0.2 Events</div>
+                                <div class="text-[10px] text-slate-400">Number of events needed to completely amortize the $21,221 4-node Alpha Fleet CapEx.</div>
                             </div>
                         </div>
                     </div>
@@ -488,12 +489,15 @@
 
                 <!-- CAPEX BOM BREAKDOWN CARD -->
                 <div class="lg:col-span-5 p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h4 class="text-sm font-bold text-white flex items-center">
-                            <i data-lucide="package" class="w-4 h-4 text-sunshine-orange mr-2"></i>
-                            Flypack Rig Bill of Materials
-                        </h4>
-                        <span class="text-[10px] text-slate-400 font-mono">Peplink + COTS</span>
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h4 class="text-sm font-bold text-white flex items-center">
+                                <i data-lucide="package" class="w-4 h-4 text-sunshine-orange mr-2"></i>
+                                Master Flypack Rig BOM ($19,500)
+                            </h4>
+                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Flagship 12U Master Node • 4-Node Alpha Fleet: $21,221</p>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-mono bg-[#0B1120] px-2 py-1 rounded border border-sunshine-navyBorder self-start sm:self-auto">Peplink + COTS</span>
                     </div>
 
                     <div class="space-y-2 text-xs font-mono">
@@ -524,8 +528,8 @@
                     </div>
 
                     <div class="p-3 rounded-xl bg-sunshine-orange/10 border border-sunshine-orange/30 text-[11px] text-slate-300 space-y-1">
-                        <div class="font-bold text-sunshine-orange">Enterprise Partner Architecture:</div>
-                        <p>Authorized Peplink Silver VAR core routing paired with standardized, ruggedized field components engineered for rapid assembly in Cincinnati, OH.</p>
+                        <div class="font-bold text-sunshine-orange">Fleet CapEx & Master Rig Scope:</div>
+                        <p>This $19,500 BOM details the flagship 12U Master Node with full Peplink SD-WAN bonding. Adding 3 auxiliary satellite mesh nodes completes the 4-node Alpha Fleet at $21,221 total CapEx with N+1 failover redundancy.</p>
                     </div>
                 </div>
             </div>
@@ -1043,7 +1047,8 @@
             // Value Add
             const posVolumePerVendorPerDay = 15000;
             const posSaved = Math.round(vendors * days * posVolumePerVendorPerDay * 0.12); // 12% baseline outage loss
-            const paybackEvents = (19500 / netProfit).toFixed(1);
+            const fleetCapEx = 21221; // 4-Node Alpha Fleet with N+1 Redundancy
+            const paybackEvents = (fleetCapEx / netProfit).toFixed(1);
 
             // Update UI
             calcGrossRevenue.innerText = '$' + grossRevenue.toLocaleString();
