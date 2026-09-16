@@ -100,21 +100,23 @@
 
     <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-brand-dark/90 border-b border-brand-orange/20" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+            <div class="flex justify-between items-center h-20 gap-4">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group select-none">
                     <!-- Brand Icon -->
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
                         <img src="/assets/sss_logo_trans.png" alt="SunShade Systems Logo" class="logo-img">
                     </div>
-                    <span class="font-bold text-xl text-brand-light tracking-tight">SunShade Systems</span>
-                </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">The Problem</a>
-                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">Hardware Specs</a>
-                    <a href="#telemetry" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">Telemetry</a>
-                    <a href="info.html" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium">Event Infrastructure</a>
+                    <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">
+                        SunShade <span class="text-brand-orange">Systems</span>
+                    </span>
+                </a>
+                <div class="hidden xl:flex items-center gap-3 2xl:gap-6">
+                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">The Problem</a>
+                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Hardware Specs</a>
+                    <a href="#telemetry" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Telemetry</a>
+                    <a href="info.html" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Event Infrastructure</a>
 					<div class="relative group">
-                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2">
+                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2 whitespace-nowrap text-sm">
                             Makerverse
                             <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
@@ -147,13 +149,20 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#conversion" class="bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5">
-                        Deploy Now
+                    <!-- Peplink Silver Partner Badge -->
+                    <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="shrink-0 flex items-center hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
+                        <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto shrink-0">
+                    </a>
+                    <a href="#conversion" onclick="selectVector('commercial')" class="shrink-0 bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5 whitespace-nowrap text-sm">
+                        Book Site Survey
                     </a>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-light hover:text-brand-orange focus:outline-none p-2">
+                <!-- Mobile / Tablet menu button & quick CTA -->
+                <div class="xl:hidden flex items-center gap-3">
+                    <a href="#conversion" onclick="selectVector('commercial')" class="bg-brand-orange hover:bg-orange-600 text-brand-light px-4 py-2 rounded-full font-semibold text-xs transition-all shadow-md whitespace-nowrap">
+                        Book Survey
+                    </a>
+                    <button id="mobile-menu-btn" class="text-brand-light hover:text-brand-orange focus:outline-none p-2" aria-label="Toggle menu">
                         <i id="mobile-menu-icon" class="fa-solid fa-bars text-2xl transition-transform duration-300"></i>
                     </button>
                 </div>
@@ -161,7 +170,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-md border-b border-brand-orange/20 w-full absolute top-20 left-0 flex flex-col shadow-2xl">
+        <div id="mobile-menu" class="hidden xl:hidden bg-brand-dark/95 backdrop-blur-md border-b border-brand-orange/20 w-full absolute top-20 left-0 flex flex-col shadow-2xl">
             <div class="px-2 pt-2 pb-6 space-y-1 overflow-y-auto max-h-[calc(100vh-5rem)]">
                 <a href="#problem" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">The Problem</a>
                 <a href="#solution" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">Hardware Specs</a>
@@ -181,7 +190,10 @@
                 </div>
                 
                 <div class="pt-4 mt-2 border-t border-brand-light/10">
-                    <a href="#conversion" class="mobile-link block px-6 py-4 text-brand-orange font-bold hover:bg-brand-light/5 rounded-xl text-lg transition-colors text-center mt-2">Deploy Infrastructure</a>
+                    <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="mobile-link flex items-center justify-center mx-2 mb-3 hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
+                        <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto">
+                    </a>
+                    <a href="#conversion" onclick="selectVector('commercial')" class="mobile-link block px-6 py-4 text-brand-orange font-bold hover:bg-brand-light/5 rounded-xl text-lg transition-colors text-center mt-2">Book Site Survey</a>
                 </div>
             </div>
         </div>
@@ -636,7 +648,7 @@
                         <div class="w-8 h-8 rounded bg-brand-orange flex items-center justify-center text-brand-light shadow-md">
                             <i class="fa-solid fa-network-wired text-sm"></i>
                         </div>
-                        <span class="font-bold text-2xl tracking-tight">SunShade Systems</span>
+                        <span class="font-extrabold text-2xl tracking-tight text-white">SunShade <span class="text-brand-orange">Systems</span></span>
                     </div>
                     <p class="text-brand-light/60 max-w-sm mb-6 leading-relaxed">
                         Field-deployable local network infrastructure and edge computing systems for high-density events and civic operations.
@@ -644,6 +656,16 @@
                     <a href="https://linktr.ee/tymzpollack" target="_blank" class="inline-flex items-center gap-2 text-brand-orange hover:text-orange-400 font-bold transition-colors">
                         <i class="fa-solid fa-link"></i> Founder's Linktree
                     </a>
+
+                    <!-- Peplink Silver Partner Reseller Badge -->
+                    <div class="mt-8 pt-6 border-t border-brand-light/10">
+                        <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
+                            <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto">
+                        </a>
+                        <p class="text-brand-light/60 text-xs mt-3 leading-relaxed">
+                            SunShade Systems is an Authorized Peplink Silver Value-Added Reseller providing enterprise SpeedFusion routing and Tier-1 deployment support.
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="flex md:justify-center">
@@ -653,6 +675,7 @@
                              <li><a href="info.html" class="hover:text-brand-orange transition-colors">Event Infrastructure Model</a></li>
                              <li><a href="#solution" class="hover:text-brand-orange transition-colors">12U Flypack Hardware Specs</a></li>
                              <li><a href="#telemetry" class="hover:text-brand-orange transition-colors">Environmental Telemetry</a></li>
+                             <li><a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange transition-colors flex items-center gap-1.5"><span>SpeedFusion Technology</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i></a></li>
                         </ul>
                     </div>
                 </div>

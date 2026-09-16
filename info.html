@@ -82,33 +82,38 @@
 
     <!-- TOP NAVIGATION BAR -->
     <header class="sticky top-0 z-50 bg-[#0B1120]/90 backdrop-blur-md border-b border-sunshine-navyBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sunshine-orange to-amber-600 flex items-center justify-center font-bold text-xl text-white shadow-lg glow-orange">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sunshine-orange to-amber-600 flex items-center justify-center font-bold text-xl text-white shadow-lg glow-orange group-hover:scale-105 transition-transform flex-shrink-0">
                     S
                 </div>
                 <div>
-                    <div class="flex items-center space-x-2">
-                        <span class="font-bold text-lg tracking-wider text-white">SUNSHADE</span>
-                        <span class="text-xs px-2 py-0.5 rounded bg-sunshine-cyan/10 text-sunshine-cyan border border-sunshine-cyan/30 font-mono">SYSTEMS</span>
+                    <div class="flex items-center">
+                        <span class="font-extrabold text-xl tracking-tight text-white whitespace-nowrap">SunShade <span class="text-sunshine-orange">Systems</span></span>
                     </div>
-                    <p class="text-xs text-slate-400">The Digital Canopy Infrastructure</p>
+                    <p class="text-[11px] text-slate-400 whitespace-nowrap">The Digital Canopy Infrastructure</p>
                 </div>
-            </div>
+            </a>
 
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#overview" class="text-slate-300 hover:text-sunshine-cyan transition">Overview</a>
-                <a href="#architecture" class="text-slate-300 hover:text-sunshine-cyan transition">2026 Arch Comparison</a>
-                <a href="#roi-calculator" class="text-slate-300 hover:text-sunshine-orange transition">ROI Calculator</a>
-                <a href="#financials" class="text-slate-300 hover:text-sunshine-cyan transition">Financials & CapEx</a>
-                <a href="#roadmap" class="text-slate-300 hover:text-sunshine-orange transition">10-Year Growth</a>
-                <a href="#hardware" class="text-slate-300 hover:text-sunshine-cyan transition">Flypack Specs</a>
+            <nav class="hidden lg:flex space-x-4 xl:space-x-6 text-xs xl:text-sm font-medium">
+                <a href="#overview" class="text-slate-300 hover:text-sunshine-cyan transition whitespace-nowrap">Overview</a>
+                <a href="#architecture" class="text-slate-300 hover:text-sunshine-cyan transition whitespace-nowrap">2026 Arch Comparison</a>
+                <a href="#roi-calculator" class="text-slate-300 hover:text-sunshine-orange transition whitespace-nowrap">ROI Calculator</a>
+                <a href="#financials" class="text-slate-300 hover:text-sunshine-cyan transition whitespace-nowrap">Financials & CapEx</a>
+                <a href="#roadmap" class="text-slate-300 hover:text-sunshine-orange transition whitespace-nowrap">10-Year Growth</a>
+                <a href="#hardware" class="text-slate-300 hover:text-sunshine-cyan transition whitespace-nowrap">Flypack Specs</a>
             </nav>
 
-            <a href="https://madeintheshade.wtf" target="_blank" class="px-4 py-2 text-xs font-semibold rounded-lg bg-sunshine-orange hover:bg-sunshine-orangeLight text-white transition shadow-md flex items-center space-x-1.5">
-                <span>MadeInTheShade.wtf</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="shrink-0 flex items-center hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
+                    <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto shrink-0">
+                </a>
+                <a href="https://madeintheshade.wtf" target="_blank" class="shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-semibold rounded-lg bg-sunshine-orange hover:bg-sunshine-orangeLight text-white transition shadow-md flex items-center space-x-1.5 whitespace-nowrap">
+                    <span class="hidden sm:inline">MadeInTheShade.wtf</span>
+                    <span class="sm:hidden">Home</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -122,38 +127,42 @@
                         <span>DECENTRALIZED EDGE INFRASTRUCTURE • 2026 EDITION</span>
                     </div>
                     <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-                        Ending Datacenter Monopoly. <br>
-                        <span class="text-gradient-orange">Deploying The Digital Canopy.</span>
+                        Mission-Critical Edge Infrastructure <br>
+                        <span class="text-gradient-orange">for High-Density Events.</span>
                     </h1>
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-                        SunShade Systems replaces centralized hyperscale cloud dependency with zero-trust, edge-computed mobile Flypacks and modular LearnStations. Built for mission-critical temporary events, municipal DORA corridors, and community spaces.
+                        Field-deployable local network infrastructure and edge computing systems. Built for mission-critical temporary events, municipal DORA corridors, and community spaces.
                     </p>
 
                     <!-- QUICK KPI CARDS -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                         <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
-                            <div class="text-xs text-slate-400">Flypack CapEx</div>
-                            <div class="text-xl font-bold text-sunshine-cyan font-mono mt-0.5">$19,500</div>
-                            <div class="text-[10px] text-emerald-400 mt-1 flex items-center">
-                                <i data-lucide="check-circle" class="w-3 h-3 mr-1"></i> Turnkey Rig BOM
+                            <div class="text-xs text-slate-400">Fleet CapEx</div>
+                            <div class="text-xl font-bold text-sunshine-cyan font-mono mt-0.5">$21,221</div>
+                            <div class="text-[10px] text-slate-300 mt-1 flex items-center">
+                                4-Node Alpha Fleet (N+1)
                             </div>
                         </div>
                         <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
-                            <div class="text-xs text-slate-400">Net Profit Margin</div>
-                            <div class="text-xl font-bold text-sunshine-orange font-mono mt-0.5">70%+</div>
+                            <div class="text-xs text-slate-400">SLA Guarantee</div>
+                            <div class="text-xl font-bold text-emerald-400 font-mono mt-0.5">99.999%</div>
                             <div class="text-[10px] text-emerald-400 mt-1 flex items-center">
-                                <i data-lucide="trending-up" class="w-3 h-3 mr-1"></i> High Yield SLA
+                                POS Uptime (SpeedFusion &lt;3s Failover)
                             </div>
                         </div>
                         <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
-                            <div class="text-xs text-slate-400">Network Uptime</div>
-                            <div class="text-xl font-bold text-sunshine-cyan font-mono mt-0.5">99.9%</div>
-                            <div class="text-[10px] text-slate-400 mt-1">Hard-Walled VLAN</div>
+                            <div class="text-xs text-slate-400">Operating Margin</div>
+                            <div class="text-xl font-bold text-sunshine-orange font-mono mt-0.5">75–85%</div>
+                            <div class="text-[10px] text-slate-300 mt-1 flex items-center">
+                                Net Event Retainer
+                            </div>
                         </div>
                         <div class="p-3.5 rounded-xl bg-sunshine-navyCard border border-sunshine-navyBorder">
-                            <div class="text-xs text-slate-400">Data Mining</div>
-                            <div class="text-xl font-bold text-emerald-400 font-mono mt-0.5">0.0%</div>
-                            <div class="text-[10px] text-slate-400 mt-1">Post-Quantum ZK</div>
+                            <div class="text-xs text-slate-400">Battery Runtime</div>
+                            <div class="text-xl font-bold text-sunshine-cyan font-mono mt-0.5">12–16 hrs</div>
+                            <div class="text-[10px] text-slate-300 mt-1 flex items-center">
+                                2,048 Wh LiFePO4 Reserve
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -428,9 +437,9 @@
                                 <i data-lucide="zap" class="w-5 h-5"></i>
                             </div>
                             <div class="space-y-1">
-                                <div class="text-xs font-bold text-white">Rig CapEx Payback Speed</div>
-                                <div id="calcPayback" class="text-xl font-extrabold text-emerald-400 font-mono">0.4 Events</div>
-                                <div class="text-[10px] text-slate-400">Number of events needed to completely pay off a $19,500 Flypack hardware rig.</div>
+                                <div class="text-xs font-bold text-white">Fleet CapEx Payback Speed</div>
+                                <div id="calcPayback" class="text-xl font-extrabold text-emerald-400 font-mono">0.2 Events</div>
+                                <div class="text-[10px] text-slate-400">Number of events needed to completely amortize the $21,221 4-node Alpha Fleet CapEx.</div>
                             </div>
                         </div>
                     </div>
@@ -456,7 +465,7 @@
                     5-Year Financial Outlook & Unit Economics
                 </h3>
                 <p class="text-slate-400 text-sm">
-                    Structured for low CapEx hardware scalability ($19.5k/rig) and high-margin recurring event infrastructure retainers.
+                    Structured for rapid hardware amortization ($21,221 4-node Alpha Fleet CapEx) and high-margin recurring event infrastructure retainers.
                 </p>
             </div>
 
@@ -478,44 +487,102 @@
 
                 <!-- CAPEX BOM BREAKDOWN CARD -->
                 <div class="lg:col-span-5 p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h4 class="text-sm font-bold text-white flex items-center">
-                            <i data-lucide="package" class="w-4 h-4 text-sunshine-orange mr-2"></i>
-                            Flypack Rig Bill of Materials ($19.5k)
-                        </h4>
-                        <span class="text-[10px] text-slate-400 font-mono">COTS Assembly</span>
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h4 class="text-sm font-bold text-white flex items-center">
+                                <i data-lucide="package" class="w-4 h-4 text-sunshine-orange mr-2"></i>
+                                Master Flypack Rig BOM ($19,500)
+                            </h4>
+                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">Flagship 12U Master Node • 4-Node Alpha Fleet: $21,221</p>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-mono bg-[#0B1120] px-2 py-1 rounded border border-sunshine-navyBorder self-start sm:self-auto">Peplink + COTS</span>
                     </div>
 
                     <div class="space-y-2 text-xs font-mono">
                         <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
-                            <span class="text-slate-300">12U Shock-Mount Rolling Rack Chassis</span>
+                            <span class="text-slate-300">12U Shock-Mount Pelican Rolling Chassis</span>
                             <span class="text-sunshine-cyan font-bold">$2,800</span>
                         </div>
                         <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
-                            <span class="text-slate-300">2.0 kWh LiFePO4 Power Reserve + Pure Sine</span>
+                            <span class="text-slate-300">2,048 Wh LiFePO4 Battery + Pure Sine</span>
                             <span class="text-sunshine-cyan font-bold">$3,200</span>
                         </div>
                         <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
-                            <span class="text-slate-300">20ft Pneumatic Mast + Solar Fan-Blade Canopy</span>
+                            <span class="text-slate-300">20ft Pneumatic Mast + Solar Cooling Canopy</span>
                             <span class="text-sunshine-cyan font-bold">$4,500</span>
                         </div>
                         <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
-                            <span class="text-slate-300">Tri-Backhaul (Starlink High-Performance + PTP)</span>
+                            <span class="text-slate-300">Peplink MAX BR1 Pro 5G + Mobility 42G</span>
                             <span class="text-sunshine-cyan font-bold">$4,200</span>
                         </div>
                         <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
-                            <span class="text-slate-300">Local ARM/NVMe Edge Compute + Dual 5G SA</span>
+                            <span class="text-slate-300">SpeedFusion Starlink + Dual 5G SA Bonding</span>
                             <span class="text-sunshine-cyan font-bold">$3,100</span>
                         </div>
                         <div class="p-2.5 rounded bg-[#0B1120] border border-sunshine-navyBorder flex justify-between">
-                            <span class="text-slate-300">360° IP Camera Suite + Hardware Integration</span>
+                            <span class="text-slate-300">360° Cameras + Ultrasonic Anemometer (NVMe)</span>
                             <span class="text-sunshine-cyan font-bold">$1,700</span>
                         </div>
                     </div>
 
                     <div class="p-3 rounded-xl bg-sunshine-orange/10 border border-sunshine-orange/30 text-[11px] text-slate-300 space-y-1">
-                        <div class="font-bold text-sunshine-orange">Commercial Off-The-Shelf (COTS) Strategy:</div>
-                        <p>No silicon fabrication risk. Built with standardized, ruggedized field components engineered for rapid assembly in Cincinnati, OH.</p>
+                        <div class="font-bold text-sunshine-orange">Fleet CapEx & Master Rig Scope:</div>
+                        <p>This $19,500 BOM details the flagship 12U Master Node with full Peplink SD-WAN bonding. Adding 3 auxiliary satellite mesh nodes completes the 4-node Alpha Fleet at $21,221 total CapEx with N+1 failover redundancy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CIRCULAR ASSET CASCADE & AMORTIZATION CARD -->
+            <div class="p-6 rounded-2xl bg-gradient-to-r from-sunshine-navyCard via-[#151D30] to-sunshine-navyCard border border-sunshine-cyan/30 space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sunshine-cyan/10 border border-sunshine-cyan/30 text-sunshine-cyan text-xs font-mono mb-2">
+                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                            <span>CIRCULAR ASSET CASCADE</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Circular Economy: Festival-Amortized Hardware Cascade</h4>
+                    </div>
+                    <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/30 font-semibold self-start md:self-auto">
+                        $0 Remaining Asset Liability
+                    </span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed max-w-4xl">
+                    After 2–3 festival deployments fully amortize fleet CapEx, hardware is redeployed into LightStone Dynamics LearnStations and municipal DORA canopies at $0 remaining asset liability on the ledger.
+                </p>
+
+                <!-- FLOW DIAGRAM -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="p-4 rounded-xl bg-[#0B1120] border border-sunshine-orange/40 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-sunshine-orange font-bold">STAGE 1 • FESTIVAL RETENTION</span>
+                            <i data-lucide="tent" class="w-4 h-4 text-sunshine-orange"></i>
+                        </div>
+                        <h5 class="text-sm font-bold text-white">Alpha Fleet CapEx Amortization</h5>
+                        <p class="text-xs text-slate-400">
+                            2–3 commercial festival deployments completely recover the $21,221 4-node fleet hardware investment via vendor POS packages and production retainers.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-[#0B1120] border border-sunshine-cyan/40 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-sunshine-cyan font-bold">STAGE 2 • MUNICIPAL DORA CANOPIES</span>
+                            <i data-lucide="building-2" class="w-4 h-4 text-sunshine-cyan"></i>
+                        </div>
+                        <h5 class="text-sm font-bold text-white">Semi-Permanent Civic Expansion</h5>
+                        <p class="text-xs text-slate-400">
+                            Amortized Flypack nodes redeploy into downtown entertainment districts and public outdoor corridors with zero ongoing debt load.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-[#0B1120] border border-purple-500/40 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-purple-400 font-bold">STAGE 3 • LEARNSTATIONS</span>
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-purple-400"></i>
+                        </div>
+                        <h5 class="text-sm font-bold text-white">LightStone Dynamics Classrooms</h5>
+                        <p class="text-xs text-slate-400">
+                            Computing hardware and mesh radios transition into recycled HDPE student LearnStations for offline STEM learning at $0 asset liability.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -590,7 +657,7 @@
                         </li>
                         <li class="flex items-start">
                             <span class="text-sunshine-cyan mr-2">▸</span>
-                            <span><strong>Maker Network & Toxicity Tax:</strong> Autonomous monetization of toxic behavior funding school maintenance.</span>
+                            <span><strong>Makerverse Civic Operations:</strong> Local edge computing and decentralized coordination funding community infrastructure.</span>
                         </li>
                     </ul>
                 </div>
@@ -662,15 +729,15 @@
                     <ul class="text-xs text-slate-300 space-y-2 font-mono">
                         <li class="flex items-start">
                             <span class="text-sunshine-orange mr-2">✓</span>
-                            <span>IP67 Weatherproof sealed Pelican / Rolling 12U rack chassis.</span>
+                            <span>IP67 Weatherproof sealed 12U Pelican shock-mount rolling chassis (165 lbs dry weight).</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-sunshine-orange mr-2">✓</span>
-                            <span>Fits easily inside SUV, cargo van, or local staging facility (165 lbs dry weight).</span>
+                            <span>Peplink MAX BR1 Pro 5G core router paired with high-gain Peplink Mobility 42G antenna.</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-sunshine-orange mr-2">✓</span>
-                            <span>Internal LiFePO4 batteries locked and shock-isolated during transit.</span>
+                            <span>2,048 Wh internal LiFePO4 batteries locked and shock-isolated during SUV/van transit.</span>
                         </li>
                     </ul>
                 </div>
@@ -689,15 +756,16 @@
                     <div class="p-6 rounded-xl bg-[#0B1120] border border-sunshine-cyan/30 text-center space-y-2">
                         <!-- Mast schematic -->
                         <div class="flex flex-col items-center">
-                            <div class="w-16 h-4 rounded bg-sunshine-cyan/20 border border-sunshine-cyan text-[8px] font-mono text-sunshine-cyan flex items-center justify-center">
-                                Solar Canopy + Fan
+                            <div class="w-20 h-4 rounded bg-sunshine-cyan/20 border border-sunshine-cyan text-[8px] font-mono text-sunshine-cyan flex items-center justify-center">
+                                Solar Canopy + Anemometer
                             </div>
-                            <div class="w-1 h-12 bg-sunshine-cyan/60"></div>
+                            <div class="w-1 h-10 bg-sunshine-cyan/60"></div>
                             <div class="w-2.5 h-2.5 rounded-full bg-sunshine-orange animate-pulse"></div>
-                            <div class="text-[8px] text-sunshine-orange font-mono">360° Mast IP Camera</div>
-                            <div class="w-1 h-12 bg-sunshine-cyan/60"></div>
-                            <div class="w-28 h-12 rounded bg-sunshine-navyCard border-2 border-sunshine-cyan flex flex-col justify-center items-center">
-                                <span class="text-[10px] font-mono text-white font-bold">Ground Base Rig</span>
+                            <div class="text-[8px] text-sunshine-orange font-mono">360° IP Cameras + RS485 Array</div>
+                            <div class="w-1 h-10 bg-sunshine-cyan/60"></div>
+                            <div class="w-36 h-14 rounded bg-sunshine-navyCard border-2 border-sunshine-cyan flex flex-col justify-center items-center px-2">
+                                <span class="text-[10px] font-mono text-white font-bold">Peplink MAX BR1 Pro 5G</span>
+                                <span class="text-[8px] font-mono text-sunshine-cyan">SpeedFusion Bonded Core</span>
                             </div>
                         </div>
                     </div>
@@ -705,17 +773,62 @@
                     <ul class="text-xs text-slate-200 space-y-2 font-mono">
                         <li class="flex items-start">
                             <span class="text-sunshine-cyan mr-2">✓</span>
-                            <span>20ft Pneumatic telescoping mast extends for clear line-of-sight Wi-Fi & Starlink.</span>
+                            <span>20ft Pneumatic telescoping mast extends for clear line-of-sight Wi-Fi & Starlink satellite connection.</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-sunshine-cyan mr-2">✓</span>
-                            <span>Solar panel-topped fan blades provide active cooling (+22W net power yield).</span>
+                            <span>SpeedFusion packet bonding combines Starlink satellite feeds with dual 5G Standalone (SA) SIMs to prevent transaction drops with &lt;3s failover.</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-sunshine-cyan mr-2">✓</span>
-                            <span>360° IP Camera provides perimeter security & wind sway telemetry with local NVMe storage.</span>
+                            <span>Mast array integrates 360° IP cameras and RS485 ultrasonic anemometers logging locally to NVMe with zero WAN overhead.</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- TECHNICAL SPECS & CORE ARCHITECTURE MATRIX -->
+            <div class="p-6 rounded-2xl bg-sunshine-navyCard border border-sunshine-navyBorder space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-sunshine-navyBorder pb-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="/assets/peplink_logo.svg" alt="Peplink" class="h-5 w-auto">
+                        <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono">12U Flypack Node Architecture & Specifications</h4>
+                    </div>
+                    <span class="text-xs font-mono text-sunshine-orange bg-sunshine-orange/10 px-2.5 py-1 rounded border border-sunshine-orange/30 self-start sm:self-auto font-semibold">Authorized Silver VAR Integration</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+                    <div class="p-3.5 rounded-xl bg-[#0B1120] border border-sunshine-navyBorder space-y-1.5">
+                        <span class="text-slate-400 block text-[10px] uppercase tracking-wider">Core SD-WAN Router</span>
+                        <div class="font-bold text-white text-sm">Peplink MAX BR1 Pro 5G</div>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">
+                            Dual-SIM 5G Standalone (SA) modem with sub-3s automated link failover and hard-walled VLAN QoS.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-[#0B1120] border border-sunshine-navyBorder space-y-1.5">
+                        <span class="text-slate-400 block text-[10px] uppercase tracking-wider">Multi-WAN Bonding</span>
+                        <div class="font-bold text-sunshine-cyan text-sm">Peplink SpeedFusion</div>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">
+                            Bonds Starlink satellite feeds with dual 5G cellular carriers at the packet level to prevent dropped transactions.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-[#0B1120] border border-sunshine-navyBorder space-y-1.5">
+                        <span class="text-slate-400 block text-[10px] uppercase tracking-wider">Antenna Array</span>
+                        <div class="font-bold text-white text-sm">Peplink Mobility 42G</div>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">
+                            4x4 MIMO 5G/LTE cellular, 2x2 MIMO Wi-Fi, and active GPS housed in an IP68 aerodynamic dome.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-[#0B1120] border border-sunshine-orange/40 space-y-1.5">
+                        <span class="text-slate-400 block text-[10px] uppercase tracking-wider">Masthead Telemetry</span>
+                        <div class="font-bold text-sunshine-orange text-sm">360° Vision + RS485 Anemometer</div>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">
+                            Acoustic sound wave wind sensing and perimeter surveillance logging locally to NVMe with zero WAN overhead.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -728,10 +841,22 @@
                 <div class="w-8 h-8 rounded-lg bg-sunshine-orange flex items-center justify-center font-bold text-white text-lg">
                     S
                 </div>
-                <span class="text-xl font-bold tracking-wider text-white">SUNSHADE SYSTEMS, LLC</span>
+                <span class="text-xl font-extrabold tracking-tight text-white">SunShade <span class="text-sunshine-orange">Systems</span></span>
             </div>
+
+            <!-- Peplink Silver Partner Reseller Badge -->
+            <div class="p-4 rounded-xl bg-[#151D30] border border-sunshine-navyBorder max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
+                <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="shrink-0 flex items-center hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
+                    <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto shrink-0">
+                </a>
+                <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-sunshine-cyan hover:underline flex items-center gap-1.5">
+                    <span>SpeedFusion Architecture</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
             <p class="text-xs text-slate-400 max-w-xl mx-auto leading-relaxed">
-                Building community-owned, privacy-first digital infrastructure. Un-censorable edge compute powered by SunShade OS and the Horizon Trust Network.
+                SunShade Systems is an Authorized Peplink Silver Value-Added Reseller providing enterprise SpeedFusion routing and Tier-1 deployment support.
             </p>
             <div class="flex justify-center space-x-6 text-xs text-slate-400 font-mono">
                 <a href="https://madeintheshade.wtf" target="_blank" class="hover:text-sunshine-orange transition">MadeInTheShade.wtf</a>
@@ -916,7 +1041,8 @@
             // Value Add
             const posVolumePerVendorPerDay = 15000;
             const posSaved = Math.round(vendors * days * posVolumePerVendorPerDay * 0.12); // 12% baseline outage loss
-            const paybackEvents = (19500 / netProfit).toFixed(1);
+            const fleetCapEx = 21221; // 4-Node Alpha Fleet with N+1 Redundancy
+            const paybackEvents = (fleetCapEx / netProfit).toFixed(1);
 
             // Update UI
             calcGrossRevenue.innerText = '$' + grossRevenue.toLocaleString();
