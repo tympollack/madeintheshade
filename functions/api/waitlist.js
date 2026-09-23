@@ -22,7 +22,11 @@ export async function onRequestPost(context) {
       return Response.json({ error: 'Invalid email format' }, { status: 400 });
     }
 
-    const cleanVector = (vector === 'civic' || vector === 'Civic Alpha') ? 'Civic Alpha' : 'Commercial Survey';
+    const cleanVector = (vector === 'civic' || vector === 'Civic Alpha') 
+      ? 'Civic Alpha' 
+      : (vector === 'event_network' || vector === 'Event Network Deployment')
+        ? 'Event Network Deployment'
+        : 'Commercial Survey';
 
     const res = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
       method: 'POST',
