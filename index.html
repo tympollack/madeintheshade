@@ -144,14 +144,14 @@
                         SunShade <span class="text-brand-orange">Systems</span>
                     </span>
                 </a>
-                <div class="hidden xl:flex items-center gap-3 2xl:gap-6">
-                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">The Problem</a>
-                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Hardware Specs</a>
-                    <a href="#tactical-networking" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Tactical Networking</a>
-                    <a href="#telemetry" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Telemetry</a>
-                    <a href="info.html" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Event Infrastructure</a>
+                <div class="hidden xl:flex items-center gap-2.5 2xl:gap-5">
+                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">The Problem</a>
+                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">Hardware Specs</a>
+                    <a href="#tactical-networking" class="hidden 2xl:inline-block text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Tactical Networking</a>
+                    <a href="#telemetry" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">Telemetry</a>
+                    <a href="info.html" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">Event Infrastructure</a>
 					<div class="relative group">
-                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2 whitespace-nowrap text-sm">
+                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2 whitespace-nowrap text-xs 2xl:text-sm">
                             Makerverse
                             <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
@@ -186,9 +186,9 @@
                     </div>
                     <!-- Peplink Silver Partner Badge -->
                     <a href="#tactical-networking" class="shrink-0 flex items-center hover:opacity-90 transition-opacity" title="Engineered multi-WAN bonding and sub-3-second transaction failover powered by Peplink SpeedFusion™">
-                        <img src="/assets/peplink-silver-partner.svg" alt="Authorized Peplink Silver Partner | Peplink Certified Sales Specialist (PCSS)" class="h-16 w-auto shrink-0">
+                        <img src="/assets/peplink-silver-partner.svg" alt="Authorized Peplink Silver Partner | Peplink Certified Sales Specialist (PCSS)" class="h-12 2xl:h-16 w-auto shrink-0">
                     </a>
-                    <a href="#conversion" onclick="selectVector('commercial')" class="shrink-0 bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5 whitespace-nowrap text-sm">
+                    <a href="#conversion" onclick="selectVector('commercial')" class="shrink-0 bg-brand-orange hover:bg-orange-600 text-brand-light px-4 2xl:px-6 py-2 2xl:py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5 whitespace-nowrap text-xs 2xl:text-sm">
                         Book Site Survey
                     </a>
                 </div>
@@ -537,7 +537,7 @@
             </div>
 
             <!-- Conversion Action Bar -->
-            <div class="bg-white border-2 border-brand-orange/30 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div class="bg-white border-2 border-brand-orange/30 rounded-3xl p-8 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
                 <div>
                     <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-orange/10 text-brand-orange rounded-full mb-3 inline-block">
                         Deployment Ready
@@ -549,11 +549,11 @@
                         Schedule a tactical edge deployment assessment or review the detailed 12U Master Node hardware topology.
                     </p>
                 </div>
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto shrink-0">
-                    <button type="button" onclick="selectVector('event_network')" class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-lg hover:shadow-brand-orange/40 whitespace-nowrap">
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto shrink-0">
+                    <a href="#contact" onclick="selectVector('event_network')" class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-lg hover:shadow-brand-orange/40 whitespace-nowrap">
                         <span>Request Event Deployment Brief</span>
                         <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    </a>
                     <a href="#solution" class="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-black text-brand-light font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-md whitespace-nowrap">
                         <span>View Flypack Hardware Architecture</span>
                         <i class="fa-solid fa-sliders"></i>
@@ -746,41 +746,61 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <!-- Option A: Commercial Events -->
-                <div class="bg-white border-2 border-brand-orange/40 hover:border-brand-orange rounded-3xl p-8 md:p-10 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
+                <div class="bg-white border-2 border-brand-orange/40 hover:border-brand-orange rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
                     <div>
                         <div class="flex items-center justify-between mb-6">
                             <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-orange text-brand-light rounded-full">Option A: Commercial Events</span>
                             <i class="fa-solid fa-credit-card text-brand-orange text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-black mb-4 text-brand-dark">Commercial Events</h3>
-                        <p class="text-brand-dark/80 text-lg leading-relaxed mb-8">
-                            Book a Site Survey — Guarantee vendor card transactions and event operations.
+                        <h3 class="text-2xl font-black mb-3 text-brand-dark">Commercial Events</h3>
+                        <p class="text-brand-dark/80 text-base leading-relaxed mb-6">
+                            Book a Site Survey — Guarantee vendor card transactions, POS network reliability, and merchant checkout uptime.
                         </p>
                     </div>
                     <div>
-                        <button type="button" onclick="selectVector('commercial')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-brand-orange/40">
+                        <button type="button" onclick="selectVector('commercial')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-3.5 rounded-xl text-base transition-all shadow-lg hover:shadow-brand-orange/40">
                             <span>Book a Site Survey</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Option B: Civic Defense & Testing -->
-                <div class="bg-white border border-brand-dark/15 hover:border-brand-dark/40 rounded-3xl p-8 md:p-10 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
+                <!-- Option B: Tactical Event Networks -->
+                <div class="bg-white border-2 border-brand-orange hover:border-orange-600 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl relative ring-2 ring-brand-orange/20">
                     <div>
                         <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-dark/10 text-brand-dark rounded-full">Option B: Civic Defense & Testing</span>
-                            <i class="fa-solid fa-network-wired text-brand-orange text-2xl"></i>
+                            <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-dark text-brand-light rounded-full">Option B: High-Density Edge</span>
+                            <i class="fa-solid fa-bolt text-brand-orange text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-black mb-4 text-brand-dark">Civic Defense & Testing</h3>
-                        <p class="text-brand-dark/80 text-lg leading-relaxed mb-8">
-                            Join Alpha Testing — Access local community software and developer documentation.
+                        <h3 class="text-2xl font-black mb-3 text-brand-dark">Tactical Event Networks</h3>
+                        <p class="text-brand-dark/80 text-base leading-relaxed mb-6">
+                            Request Deployment Brief — Multi-WAN bonding, SpeedFusion hot failover, and dedicated POS isolation for 30,000+ attendee crowds.
                         </p>
                     </div>
                     <div>
-                        <button type="button" onclick="selectVector('civic')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-black text-brand-light font-bold py-4 rounded-xl text-lg transition-all">
+                        <a href="#contact" onclick="selectVector('event_network')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-3.5 rounded-xl text-base transition-all shadow-lg hover:shadow-brand-orange/40">
+                            <span>Request Deployment Brief</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Option C: Civic Defense & Testing -->
+                <div class="bg-white border border-brand-dark/15 hover:border-brand-dark/40 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-dark/10 text-brand-dark rounded-full">Option C: Civic Infrastructure</span>
+                            <i class="fa-solid fa-network-wired text-brand-orange text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-3 text-brand-dark">Civic Defense & Testing</h3>
+                        <p class="text-brand-dark/80 text-base leading-relaxed mb-6">
+                            Join Alpha Testing — Access local community software, zero-WAN civic microservices, and developer documentation.
+                        </p>
+                    </div>
+                    <div>
+                        <button type="button" onclick="selectVector('civic')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-black text-brand-light font-bold py-3.5 rounded-xl text-base transition-all">
                             <span>Join Alpha Testing</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
@@ -1058,6 +1078,11 @@
             if (emailInput) {
                 emailInput.focus();
                 emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            if (history.pushState) {
+                history.pushState(null, null, '#contact');
+            } else {
+                location.hash = '#contact';
             }
         }
         window.selectVector = selectVector;
