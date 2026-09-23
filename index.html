@@ -3,7 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunShade Systems | Have It Made in the Shade</title>
+    <title>SunShade Systems | Tactical Edge Networking & High-Density Event Infrastructure</title>
+    <meta name="description" content="Field-tested tactical edge networking and deployable power infrastructure for high-density events. Guaranteed point-of-sale uptime powered by Peplink SpeedFusion multi-WAN bonding.">
+    
+    <!-- OpenGraph & Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://madeintheshade.wtf">
+    <meta property="og:title" content="SunShade Systems | Tactical Edge Networking & High-Density Event Infrastructure">
+    <meta property="og:description" content="Field-tested tactical edge networking and deployable power infrastructure for high-density events. Guaranteed point-of-sale uptime powered by Peplink SpeedFusion multi-WAN bonding.">
+    <meta property="og:image" content="https://madeintheshade.wtf/assets/sss_logo_trans.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SunShade Systems | Tactical Edge Networking & High-Density Event Infrastructure">
+    <meta name="twitter:description" content="Field-tested tactical edge networking and deployable power infrastructure for high-density events. Guaranteed point-of-sale uptime powered by Peplink SpeedFusion multi-WAN bonding.">
+    <meta name="twitter:image" content="https://madeintheshade.wtf/assets/sss_logo_trans.png">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SunShade Systems",
+      "url": "https://madeintheshade.wtf",
+      "logo": "https://madeintheshade.wtf/assets/sss_logo_trans.png",
+      "description": "Field-tested multi-WAN edge infrastructure and deployable power networks for high-density events and civic operations.",
+      "knowsAbout": [
+        "Peplink SpeedFusion",
+        "SD-WAN",
+        "Multi-WAN Bonding",
+        "Cellular 5G Routing",
+        "IEEE 802.1Q VLANs"
+      ],
+      "hasCredential": "Peplink Certified Sales Specialist (PCSS)",
+      "memberOf": "Peplink Silver Partner Program"
+    }
+    </script>
     
     <link rel="icon" href="/assets/favicon.png" type="image/png">
     
@@ -110,13 +144,14 @@
                         SunShade <span class="text-brand-orange">Systems</span>
                     </span>
                 </a>
-                <div class="hidden xl:flex items-center gap-3 2xl:gap-6">
-                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">The Problem</a>
-                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Hardware Specs</a>
-                    <a href="#telemetry" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Telemetry</a>
-                    <a href="info.html" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Event Infrastructure</a>
+                <div class="hidden xl:flex items-center gap-2.5 2xl:gap-5">
+                    <a href="#problem" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">The Problem</a>
+                    <a href="#solution" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">Hardware Specs</a>
+                    <a href="#tactical-networking" class="hidden 2xl:inline-block text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-sm">Tactical Networking</a>
+                    <a href="#telemetry" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">Telemetry</a>
+                    <a href="info.html" class="text-brand-light/80 hover:text-brand-orange transition-colors font-medium whitespace-nowrap text-xs 2xl:text-sm">Event Infrastructure</a>
 					<div class="relative group">
-                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2 whitespace-nowrap text-sm">
+                        <button class="text-brand-light/80 group-hover:text-brand-orange transition-colors font-medium flex items-center gap-1 py-2 whitespace-nowrap text-xs 2xl:text-sm">
                             Makerverse
                             <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
@@ -150,10 +185,10 @@
                         </div>
                     </div>
                     <!-- Peplink Silver Partner Badge -->
-                    <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="shrink-0 flex items-center hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
-                        <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto shrink-0">
+                    <a href="#tactical-networking" class="shrink-0 flex items-center hover:opacity-90 transition-opacity" title="Engineered multi-WAN bonding and sub-3-second transaction failover powered by Peplink SpeedFusion™">
+                        <img src="/assets/peplink-silver-partner.svg" alt="Authorized Peplink Silver Partner | Peplink Certified Sales Specialist (PCSS)" class="h-12 2xl:h-16 w-auto shrink-0">
                     </a>
-                    <a href="#conversion" onclick="selectVector('commercial')" class="shrink-0 bg-brand-orange hover:bg-orange-600 text-brand-light px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5 whitespace-nowrap text-sm">
+                    <a href="#conversion" onclick="selectVector('commercial')" class="shrink-0 bg-brand-orange hover:bg-orange-600 text-brand-light px-4 2xl:px-6 py-2 2xl:py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-orange/50 transform hover:-translate-y-0.5 whitespace-nowrap text-xs 2xl:text-sm">
                         Book Site Survey
                     </a>
                 </div>
@@ -174,6 +209,7 @@
             <div class="px-2 pt-2 pb-6 space-y-1 overflow-y-auto max-h-[calc(100vh-5rem)]">
                 <a href="#problem" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">The Problem</a>
                 <a href="#solution" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">Hardware Specs</a>
+                <a href="#tactical-networking" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">Tactical Networking</a>
                 <a href="#telemetry" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">Telemetry</a>
                 <a href="info.html" class="mobile-link block px-6 py-4 text-brand-light/90 hover:text-brand-orange hover:bg-brand-light/5 rounded-xl text-lg font-medium transition-colors">Event Infrastructure</a>
                 
@@ -190,8 +226,9 @@
                 </div>
                 
                 <div class="pt-4 mt-2 border-t border-brand-light/10">
-                    <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="mobile-link flex items-center justify-center mx-2 mb-3 hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
-                        <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto">
+                    <a href="#tactical-networking" class="mobile-link flex flex-col items-center justify-center mx-2 mb-3 hover:opacity-90 transition-opacity" title="Engineered multi-WAN bonding and sub-3-second transaction failover powered by Peplink SpeedFusion™">
+                        <img src="/assets/peplink-silver-partner.svg" alt="Authorized Peplink Silver Partner | Peplink Certified Sales Specialist (PCSS)" class="h-16 w-auto">
+                        <span class="text-[11px] text-brand-light/60 font-mono mt-1">Authorized Peplink Silver Partner | PCSS Certified</span>
                     </a>
                     <a href="#conversion" onclick="selectVector('commercial')" class="mobile-link block px-6 py-4 text-brand-orange font-bold hover:bg-brand-light/5 rounded-xl text-lg transition-colors text-center mt-2">Book Site Survey</a>
                 </div>
@@ -413,6 +450,119 @@
         </div>
     </section>
 
+    <!-- Tactical Edge Networking & Revenue Protection Section (TASK-WEB-MITS-PEPLINK-SECTION) -->
+    <section id="tactical-networking" class="py-24 md:py-32 bg-brand-light text-brand-dark relative z-10 border-t border-brand-dark/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-orange/10 text-brand-orange mb-4 text-sm font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-halved"></i> Tactical Edge Networking & Revenue Protection
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-brand-dark">
+                    Field-Tested Multi-WAN Infrastructure for High-Density Environments
+                </h2>
+                <p class="text-xl text-brand-dark/80 leading-relaxed font-medium">
+                    Commercial cellular towers collapse under festival density. We combine Starlink satellite backhaul with dual 5G standalone modems to guarantee point-of-sale continuity.
+                </p>
+            </div>
+
+            <!-- 3-Column Feature Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Column 1: SpeedFusion Hitless Failover -->
+                <div class="bg-white border border-brand-dark/10 hover:border-brand-orange/50 rounded-3xl p-8 transition-all duration-300 shadow-xl hover:shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-orange/10 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">SpeedFusion™ Hitless Failover</h3>
+                        <ul class="space-y-3 text-brand-dark/80 text-sm md:text-base leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>Packet-level WAN smoothing and hot failover.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>Sub-3-second link cutover across satellite and dual cellular lines with zero payment session resets.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>99.999% Point-of-Sale uptime SLA under 30,000+ attendee crowd congestion.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 2: Hard-Walled POS Isolation -->
+                <div class="bg-white border border-brand-dark/10 hover:border-brand-orange/50 rounded-3xl p-8 transition-all duration-300 shadow-xl hover:shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-orange/10 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">Hard-Walled POS Isolation (PCI-DSS Ready)</h3>
+                        <ul class="space-y-3 text-brand-dark/80 text-sm md:text-base leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>Dedicated IEEE 802.1Q VLAN 10 segmentation with DSCP 46 Expedited Forwarding QoS rules.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>Merchant card readers are isolated from attendee Wi-Fi and edge computing traffic.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>End-to-end 256-bit AES transport encryption to private termination endpoints.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 3: Zero-Trust Remote Diagnostics -->
+                <div class="bg-white border border-brand-dark/10 hover:border-brand-orange/50 rounded-3xl p-8 transition-all duration-300 shadow-xl hover:shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-orange/10 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-brand-dark">Zero-Trust Remote Diagnostics (InControl 2 & InTouch)</h3>
+                        <ul class="space-y-3 text-brand-dark/80 text-sm md:text-base leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>Out-of-band fleet orchestration and live cellular RF telemetry (RSRP, RSRQ, SINR).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-brand-orange mt-1 shrink-0"></i>
+                                <span>Direct remote LAN access to on-site card terminals, IP cameras, and power controllers via Peplink InTouch without opening public firewall ports.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion Action Bar -->
+            <div class="bg-white border-2 border-brand-orange/30 rounded-3xl p-8 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
+                <div>
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-orange/10 text-brand-orange rounded-full mb-3 inline-block">
+                        Deployment Ready
+                    </span>
+                    <h4 class="text-2xl sm:text-3xl font-black text-brand-dark">
+                        Secure Your Event Network Architecture
+                    </h4>
+                    <p class="text-brand-dark/70 text-sm sm:text-base mt-2 max-w-xl">
+                        Schedule a tactical edge deployment assessment or review the detailed 12U Master Node hardware topology.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto shrink-0">
+                    <a href="#contact" onclick="selectVector('event_network')" class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-lg hover:shadow-brand-orange/40 whitespace-nowrap">
+                        <span>Request Event Deployment Brief</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#solution" class="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-black text-brand-light font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base transition-all shadow-md whitespace-nowrap">
+                        <span>View Flypack Hardware Architecture</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="ecosystem" class="py-24 md:py-32 bg-brand-orange text-brand-light relative z-10 overflow-hidden">
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
@@ -596,41 +746,61 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <!-- Option A: Commercial Events -->
-                <div class="bg-white border-2 border-brand-orange/40 hover:border-brand-orange rounded-3xl p-8 md:p-10 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
+                <div class="bg-white border-2 border-brand-orange/40 hover:border-brand-orange rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
                     <div>
                         <div class="flex items-center justify-between mb-6">
                             <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-orange text-brand-light rounded-full">Option A: Commercial Events</span>
                             <i class="fa-solid fa-credit-card text-brand-orange text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-black mb-4 text-brand-dark">Commercial Events</h3>
-                        <p class="text-brand-dark/80 text-lg leading-relaxed mb-8">
-                            Book a Site Survey — Guarantee vendor card transactions and event operations.
+                        <h3 class="text-2xl font-black mb-3 text-brand-dark">Commercial Events</h3>
+                        <p class="text-brand-dark/80 text-base leading-relaxed mb-6">
+                            Book a Site Survey — Guarantee vendor card transactions, POS network reliability, and merchant checkout uptime.
                         </p>
                     </div>
                     <div>
-                        <button type="button" onclick="selectVector('commercial')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-brand-orange/40">
+                        <button type="button" onclick="selectVector('commercial')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-3.5 rounded-xl text-base transition-all shadow-lg hover:shadow-brand-orange/40">
                             <span>Book a Site Survey</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Option B: Civic Defense & Testing -->
-                <div class="bg-white border border-brand-dark/15 hover:border-brand-dark/40 rounded-3xl p-8 md:p-10 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
+                <!-- Option B: Tactical Event Networks -->
+                <div class="bg-white border-2 border-brand-orange hover:border-orange-600 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl relative ring-2 ring-brand-orange/20">
                     <div>
                         <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-dark/10 text-brand-dark rounded-full">Option B: Civic Defense & Testing</span>
-                            <i class="fa-solid fa-network-wired text-brand-orange text-2xl"></i>
+                            <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-dark text-brand-light rounded-full">Option B: High-Density Edge</span>
+                            <i class="fa-solid fa-bolt text-brand-orange text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-black mb-4 text-brand-dark">Civic Defense & Testing</h3>
-                        <p class="text-brand-dark/80 text-lg leading-relaxed mb-8">
-                            Join Alpha Testing — Access local community software and developer documentation.
+                        <h3 class="text-2xl font-black mb-3 text-brand-dark">Tactical Event Networks</h3>
+                        <p class="text-brand-dark/80 text-base leading-relaxed mb-6">
+                            Request Deployment Brief — Multi-WAN bonding, SpeedFusion hot failover, and dedicated POS isolation for 30,000+ attendee crowds.
                         </p>
                     </div>
                     <div>
-                        <button type="button" onclick="selectVector('civic')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-black text-brand-light font-bold py-4 rounded-xl text-lg transition-all">
+                        <a href="#contact" onclick="selectVector('event_network')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-brand-light font-bold py-3.5 rounded-xl text-base transition-all shadow-lg hover:shadow-brand-orange/40">
+                            <span>Request Deployment Brief</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Option C: Civic Defense & Testing -->
+                <div class="bg-white border border-brand-dark/15 hover:border-brand-dark/40 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-2xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-mono font-bold uppercase tracking-widest px-3 py-1 bg-brand-dark/10 text-brand-dark rounded-full">Option C: Civic Infrastructure</span>
+                            <i class="fa-solid fa-network-wired text-brand-orange text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-3 text-brand-dark">Civic Defense & Testing</h3>
+                        <p class="text-brand-dark/80 text-base leading-relaxed mb-6">
+                            Join Alpha Testing — Access local community software, zero-WAN civic microservices, and developer documentation.
+                        </p>
+                    </div>
+                    <div>
+                        <button type="button" onclick="selectVector('civic')" class="w-full inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-black text-brand-light font-bold py-3.5 rounded-xl text-base transition-all">
                             <span>Join Alpha Testing</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
@@ -659,11 +829,11 @@
 
                     <!-- Peplink Silver Partner Reseller Badge -->
                     <div class="mt-8 pt-6 border-t border-brand-light/10">
-                        <a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-90 transition-opacity" title="Authorized Peplink Silver Partner">
-                            <img src="/assets/peplink-silver-partner.svg" alt="Peplink Silver Partner" class="h-16 w-auto">
+                        <a href="#tactical-networking" class="inline-flex items-center hover:opacity-90 transition-opacity" title="Engineered multi-WAN bonding and sub-3-second transaction failover powered by Peplink SpeedFusion™">
+                            <img src="/assets/peplink-silver-partner.svg" alt="Authorized Peplink Silver Partner | Peplink Certified Sales Specialist (PCSS)" class="h-16 w-auto">
                         </a>
                         <p class="text-brand-light/60 text-xs mt-3 leading-relaxed">
-                            SunShade Systems is an Authorized Peplink Silver Value-Added Reseller providing enterprise SpeedFusion routing and Tier-1 deployment support.
+                            SunShade Systems is an Authorized Peplink Silver Partner and Peplink Certified Sales Specialist (PCSS) providing enterprise SpeedFusion routing and Tier-1 deployment support.
                         </p>
                     </div>
                 </div>
@@ -674,19 +844,21 @@
                         <ul class="space-y-4 text-brand-light/60">
                              <li><a href="info.html" class="hover:text-brand-orange transition-colors">Event Infrastructure Model</a></li>
                              <li><a href="#solution" class="hover:text-brand-orange transition-colors">12U Flypack Hardware Specs</a></li>
+                             <li><a href="#tactical-networking" class="hover:text-brand-orange transition-colors">Tactical Edge Networking</a></li>
                              <li><a href="#telemetry" class="hover:text-brand-orange transition-colors">Environmental Telemetry</a></li>
-                             <li><a href="https://www.peplink.com/technology/speedfusion/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange transition-colors flex items-center gap-1.5"><span>SpeedFusion Technology</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i></a></li>
+                             <li><a href="https://www.peplink.com/technology/speedfusion-technology/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange transition-colors flex items-center gap-1.5"><span>Peplink SpeedFusion™</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i></a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="flex md:justify-end">
-                    <div class="w-full max-w-sm">
+                    <div id="contact" class="w-full max-w-sm">
                         <h4 class="font-bold text-lg mb-4 text-brand-light/90 uppercase tracking-wider">Deployment Contact</h4>
                         <!-- Vector selection toggle -->
                         <div class="flex rounded-lg bg-brand-light/10 p-1 mb-4 text-xs font-semibold">
-                            <button type="button" id="tab-commercial" onclick="selectVector('commercial')" class="flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white">Commercial Survey</button>
-                            <button type="button" id="tab-civic" onclick="selectVector('civic')" class="flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white">Civic Alpha</button>
+                            <button type="button" id="tab-commercial" onclick="selectVector('commercial')" class="flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white text-center">Site Survey</button>
+                            <button type="button" id="tab-network" onclick="selectVector('event_network')" class="flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center">Event Network</button>
+                            <button type="button" id="tab-civic" onclick="selectVector('civic')" class="flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center">Civic Alpha</button>
                         </div>
                         <form id="waitlist-form" class="space-y-3">
                             <!-- Honeypot field to deter bots -->
@@ -875,36 +1047,42 @@
             }
         });
 
-        // Vector Selection Logic (SPEC-WEB-03)
+        // Vector Selection Logic (SPEC-WEB-03 & TASK-WEB-MITS-PEPLINK-SECTION)
         function selectVector(vector) {
             const vectorInput = document.getElementById('waitlist-vector');
             const submitText = document.getElementById('waitlist-submit-text');
             const tabCommercial = document.getElementById('tab-commercial');
+            const tabNetwork = document.getElementById('tab-network');
             const tabCivic = document.getElementById('tab-civic');
             const emailInput = document.getElementById('waitlist-email');
             
             if (vector === 'civic') {
                 if (vectorInput) vectorInput.value = 'civic';
                 if (submitText) submitText.innerText = 'Join Alpha Testing';
-                if (tabCivic) {
-                    tabCivic.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white';
-                }
-                if (tabCommercial) {
-                    tabCommercial.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white';
-                }
+                if (tabCivic) tabCivic.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white text-center';
+                if (tabCommercial) tabCommercial.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center';
+                if (tabNetwork) tabNetwork.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center';
+            } else if (vector === 'event_network') {
+                if (vectorInput) vectorInput.value = 'event_network';
+                if (submitText) submitText.innerText = 'Request Deployment Brief';
+                if (tabNetwork) tabNetwork.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white text-center';
+                if (tabCommercial) tabCommercial.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center';
+                if (tabCivic) tabCivic.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center';
             } else {
                 if (vectorInput) vectorInput.value = 'commercial';
                 if (submitText) submitText.innerText = 'Book a Site Survey';
-                if (tabCommercial) {
-                    tabCommercial.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white';
-                }
-                if (tabCivic) {
-                    tabCivic.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white';
-                }
+                if (tabCommercial) tabCommercial.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors bg-brand-orange text-white text-center';
+                if (tabNetwork) tabNetwork.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center';
+                if (tabCivic) tabCivic.className = 'flex-1 py-1.5 px-2 rounded-md transition-colors text-brand-light/70 hover:text-white text-center';
             }
             if (emailInput) {
                 emailInput.focus();
                 emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            if (history.pushState) {
+                history.pushState(null, null, '#contact');
+            } else {
+                location.hash = '#contact';
             }
         }
         window.selectVector = selectVector;
@@ -946,7 +1124,9 @@
                 // Success Toast
                 const successMsg = vector === 'civic' 
                     ? "Successfully registered for Civic Alpha testing!" 
-                    : "Site survey request received! We'll be in touch.";
+                    : (vector === 'event_network'
+                        ? "Event deployment brief requested! We'll review your network topology."
+                        : "Site survey request received! We'll be in touch.");
 
                 Toastify({
                     text: successMsg,

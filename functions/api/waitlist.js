@@ -2,7 +2,7 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   
   try {
-    const { email, honey, vector } = await request.json();
+    const { email, honey, vector, first_name, last_name } = await request.json();
 
     // Honeypot check: If bots fill out the hidden field, silently return success
     if (honey) {
@@ -22,7 +22,18 @@ export async function onRequestPost(context) {
       return Response.json({ error: 'Invalid email format' }, { status: 400 });
     }
 
-    const cleanVector = (vector === 'civic' || vector === 'Civic Alpha') ? 'Civic Alpha' : 'Commercial Survey';
+    const cleanVector = (vector === 'civic' || vector === 'Civic Alpha') 
+      ? 'Civic Alpha' 
+      : (vector === 'event_network' || vector === 'Event Network Deployment')
+        ? 'Event Network Deployment'
+        : 'Commercial Survey';
+
+    const contactPayload = {
+      email: email,
+      first_name: first_name || cleanVector,
+      last_name: last_name || (first_name ? cleanVector : 'Inquiry'),
+      unsubscribed: false,
+    };
 
     const res = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
       method: 'POST',
@@ -30,11 +41,7 @@ export async function onRequestPost(context) {
         'Authorization': `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email: email,
-        first_name: cleanVector,
-        unsubscribed: false,
-      }),
+      body: JSON.stringify(contactPayload),
     });
 
     const data = await res.json();
